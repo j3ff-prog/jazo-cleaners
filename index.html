@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jazo Cleaners – Professional Cleaning Services</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1a2a6c;
+    --blue: #1565c0;
+    --sky: #29b6f6;
+    --green: #43a047;
+    --lime: #7cb342;
+    --white: #ffffff;
+    --light: #f0f6ff;
+    --gray: #6b7a99;
+    --dark: #0d1b3e;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--white);
+    color: var(--dark);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 6%;
+    background: rgba(10, 20, 60, 0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(41, 182, 246, 0.15);
+    transition: padding .3s;
+  }
+  nav.scrolled { padding: 10px 6%; }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+  .nav-logo-circle {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: white;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+    flex-shrink: 0;
+    box-shadow: 0 0 0 2px var(--sky);
+  }
+  .nav-logo-circle svg { width: 32px; height: 32px; }
+  .nav-brand { color: white; font-family: 'Playfair Display', serif; font-size: 1.2rem; line-height: 1.1; }
+  .nav-brand span { display: block; font-size: .65rem; font-family: 'DM Sans', sans-serif; font-weight: 400; color: var(--sky); letter-spacing: .15em; text-transform: uppercase; }
+
+  .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+  .nav-links a {
+    color: rgba(255,255,255,.8);
+    text-decoration: none;
+    font-size: .9rem;
+    font-weight: 500;
+    transition: color .2s;
+    position: relative;
+  }
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -3px; left: 0; right: 100%;
+    height: 2px;
+    background: var(--sky);
+    transition: right .3s;
+  }
+  .nav-links a:hover { color: white; }
+  .nav-links a:hover::after { right: 0; }
+
+  .nav-cta {
+    background: linear-gradient(135deg, var(--sky), var(--blue));
+    color: white !important;
+    padding: 9px 22px;
+    border-radius: 50px;
+    font-weight: 600 !important;
+    font-size: .85rem !important;
+    box-shadow: 0 4px 15px rgba(41,182,246,.35);
+    transition: transform .2s, box-shadow .2s !important;
+  }
+  .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(41,182,246,.5) !important; }
+  .nav-cta::after { display: none !important; }
+
+  /* hamburger */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px;
+    background: none; border: none;
+  }
+  .hamburger span {
+    display: block;
+    width: 24px; height: 2px;
+    background: white;
+    border-radius: 2px;
+    transition: .3s;
+  }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 72px; left: 0; right: 0;
+    background: var(--dark);
+    padding: 20px 6% 28px;
+    flex-direction: column;
+    gap: 18px;
+    z-index: 99;
+    border-bottom: 2px solid var(--sky);
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    color: rgba(255,255,255,.85);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255,255,255,.07);
+    transition: color .2s;
+  }
+  .mobile-menu a:hover { color: var(--sky); }
+  .mobile-menu .m-cta {
+    background: linear-gradient(135deg, var(--sky), var(--blue));
+    color: white;
+    padding: 12px 22px;
+    border-radius: 50px;
+    text-align: center;
+    font-weight: 600;
+    border: none;
+    margin-top: 6px;
+  }
+
+  /* ── HERO ── */
+  #home {
+    min-height: 100vh;
+    background: linear-gradient(150deg, var(--dark) 0%, var(--navy) 50%, #0d3b6e 100%);
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .hero-bubbles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  .bubble {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, rgba(41,182,246,.25), rgba(41,182,246,.05));
+    border: 1px solid rgba(41,182,246,.18);
+    animation: floatUp linear infinite;
+  }
+  .bubble:nth-child(1)  { width:60px;  height:60px;  left:8%;   bottom:-80px;  animation-duration:9s;  animation-delay:0s; }
+  .bubble:nth-child(2)  { width:25px;  height:25px;  left:18%;  bottom:-40px;  animation-duration:7s;  animation-delay:1s; }
+  .bubble:nth-child(3)  { width:90px;  height:90px;  left:35%;  bottom:-110px; animation-duration:12s; animation-delay:2s; }
+  .bubble:nth-child(4)  { width:40px;  height:40px;  left:55%;  bottom:-60px;  animation-duration:8s;  animation-delay:.5s; }
+  .bubble:nth-child(5)  { width:70px;  height:70px;  left:72%;  bottom:-90px;  animation-duration:10s; animation-delay:3s; }
+  .bubble:nth-child(6)  { width:20px;  height:20px;  left:85%;  bottom:-30px;  animation-duration:6s;  animation-delay:1.5s; }
+  .bubble:nth-child(7)  { width:50px;  height:50px;  left:92%;  bottom:-70px;  animation-duration:11s; animation-delay:4s; }
+  .bubble:nth-child(8)  { width:35px;  height:35px;  left:28%;  bottom:-50px;  animation-duration:8.5s;animation-delay:2.5s; }
+
+  @keyframes floatUp {
+    0%   { transform: translateY(0) scale(1);   opacity: 0; }
+    10%  { opacity: 1; }
+    90%  { opacity: .6; }
+    100% { transform: translateY(-110vh) scale(.7); opacity: 0; }
+  }
+
+  .sweep {
+    position: absolute;
+    bottom: -2px; left: 0; right: 0;
+    height: 80px;
+    background: var(--white);
+    clip-path: ellipse(55% 100% at 50% 100%);
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 120px 6% 100px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 60px;
+  }
+
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(41,182,246,.12);
+    border: 1px solid rgba(41,182,246,.3);
+    color: var(--sky);
+    font-size: .78rem;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 50px;
+    margin-bottom: 22px;
+  }
+  .hero-tag::before { content: '✦'; font-size: .6rem; }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    line-height: 1.1;
+    color: white;
+    margin-bottom: 20px;
+  }
+  .hero-title .accent {
+    background: linear-gradient(90deg, var(--sky), var(--lime));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-desc {
+    color: rgba(255,255,255,.7);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    max-width: 480px;
+    margin-bottom: 36px;
+  }
+
+  .hero-btns { display: flex; flex-wrap: wrap; gap: 14px; }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--sky) 0%, var(--blue) 100%);
+    color: white;
+    padding: 14px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: .95rem;
+    box-shadow: 0 6px 25px rgba(41,182,246,.4);
+    transition: transform .25s, box-shadow .25s;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 35px rgba(41,182,246,.55); }
+  .btn-outline {
+    border: 2px solid rgba(255,255,255,.3);
+    color: white;
+    padding: 13px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: .95rem;
+    transition: border-color .25s, background .25s;
+  }
+  .btn-outline:hover { border-color: var(--sky); background: rgba(41,182,246,.08); }
+
+  .hero-stats {
+    display: flex;
+    gap: 28px;
+    margin-top: 44px;
+  }
+  .stat { text-align: left; }
+  .stat-num { font-family: 'Playfair Display', serif; font-size: 1.9rem; color: white; line-height: 1; }
+  .stat-num span { color: var(--sky); }
+  .stat-label { font-size: .75rem; color: rgba(255,255,255,.5); letter-spacing: .05em; margin-top: 3px; }
+
+  /* hero right: service cards */
+  .hero-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  .hcard {
+    background: rgba(255,255,255,.06);
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 16px;
+    padding: 22px 18px;
+    backdrop-filter: blur(8px);
+    transition: transform .3s, border-color .3s;
+    cursor: default;
+  }
+  .hcard:hover { transform: translateY(-5px); border-color: rgba(41,182,246,.4); }
+  .hcard-icon {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    display: block;
+  }
+  .hcard-title { color: white; font-weight: 600; font-size: .95rem; margin-bottom: 5px; }
+  .hcard-desc { color: rgba(255,255,255,.5); font-size: .78rem; line-height: 1.5; }
+
+  /* ── SECTION SHARED ── */
+  section { padding: 80px 6%; }
+  .section-label {
+    display: inline-block;
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 10px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    color: var(--dark);
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+  .section-sub {
+    color: var(--gray);
+    font-size: 1rem;
+    line-height: 1.7;
+    max-width: 560px;
+  }
+  .centered { text-align: center; }
+  .centered .section-sub { margin: 0 auto; }
+
+  /* ── WHY US ── */
+  #why { background: var(--light); }
+  .why-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+    margin-top: 50px;
+  }
+  .why-card {
+    background: white;
+    border-radius: 20px;
+    padding: 32px 24px;
+    box-shadow: 0 2px 20px rgba(26,42,108,.06);
+    transition: transform .3s, box-shadow .3s;
+    border-top: 4px solid transparent;
+    border-image: linear-gradient(90deg, var(--sky), var(--lime)) 1;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  .why-card:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(26,42,108,.12); }
+  .why-icon {
+    width: 54px; height: 54px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, rgba(41,182,246,.15), rgba(67,160,71,.1));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 18px;
+  }
+  .why-title { font-weight: 700; font-size: 1rem; color: var(--dark); margin-bottom: 8px; }
+  .why-desc { font-size: .88rem; color: var(--gray); line-height: 1.65; }
+
+  /* ── SERVICES ── */
+  #services { background: white; }
+  .services-wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin-top: 50px;
+  }
+  .svc-card {
+    border-radius: 20px;
+    overflow: hidden;
+    background: var(--light);
+    border: 1px solid rgba(26,42,108,.07);
+    transition: transform .3s, box-shadow .3s;
+    position: relative;
+  }
+  .svc-card:hover { transform: translateY(-6px); box-shadow: 0 16px 48px rgba(26,42,108,.12); }
+  .svc-top {
+    padding: 36px 28px 28px;
+    position: relative;
+  }
+  .svc-num {
+    position: absolute;
+    top: 20px; right: 24px;
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    color: rgba(26,42,108,.06);
+    line-height: 1;
+    font-weight: 900;
+  }
+  .svc-icon {
+    font-size: 2.2rem;
+    margin-bottom: 14px;
+    display: block;
+  }
+  .svc-name { font-family: 'Playfair Display', serif; font-size: 1.25rem; color: var(--dark); font-weight: 700; margin-bottom: 8px; }
+  .svc-desc { font-size: .88rem; color: var(--gray); line-height: 1.65; }
+  .svc-footer {
+    background: linear-gradient(135deg, var(--navy), var(--blue));
+    padding: 14px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .svc-footer span { color: rgba(255,255,255,.8); font-size: .8rem; }
+  .svc-arrow {
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.15);
+    display: flex; align-items: center; justify-content: center;
+    color: white;
+    font-size: .8rem;
+    transition: background .2s, transform .2s;
+  }
+  .svc-card:hover .svc-arrow { background: var(--sky); transform: translateX(3px); }
+
+  /* ── AREAS ── */
+  #areas { background: var(--dark); }
+  .areas-wrap { max-width: 1200px; margin: 0 auto; }
+  .areas-wrap .section-title { color: white; }
+  .areas-wrap .section-sub { color: rgba(255,255,255,.55); }
+  .areas-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 40px;
+  }
+  .area-pill {
+    background: rgba(255,255,255,.06);
+    border: 1px solid rgba(41,182,246,.2);
+    color: rgba(255,255,255,.85);
+    padding: 11px 22px;
+    border-radius: 50px;
+    font-size: .9rem;
+    font-weight: 500;
+    display: flex; align-items: center; gap: 8px;
+    transition: background .25s, border-color .25s, transform .25s;
+    cursor: default;
+  }
+  .area-pill:hover { background: rgba(41,182,246,.12); border-color: var(--sky); transform: scale(1.04); }
+  .area-pill::before { content: '📍'; font-size: .8rem; }
+
+  /* ── CTA BANNER ── */
+  #contact {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 60%, #0288d1 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  #contact::before {
+    content: '';
+    position: absolute;
+    top: -60%; right: -15%;
+    width: 60vw; height: 160%;
+    background: radial-gradient(circle, rgba(255,255,255,.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .contact-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 40px;
+    position: relative;
+    z-index: 2;
+  }
+  .contact-inner .section-title { color: white; margin-bottom: 8px; }
+  .contact-inner .section-sub { color: rgba(255,255,255,.7); }
+  .contact-right { display: flex; flex-direction: column; gap: 14px; align-items: flex-end; }
+  .contact-num {
+    color: white;
+    text-decoration: none;
+    font-size: 1.3rem;
+    font-weight: 700;
+    display: flex; align-items: center; gap: 10px;
+    transition: color .2s;
+  }
+  .contact-num:hover { color: var(--sky); }
+  .contact-num .icon {
+    width: 42px; height: 42px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.15);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem;
+  }
+  .btn-white {
+    background: white;
+    color: var(--navy);
+    padding: 13px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: .9rem;
+    transition: transform .25s, box-shadow .25s;
+    white-space: nowrap;
+  }
+  .btn-white:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(0,0,0,.2); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #07102a;
+    color: rgba(255,255,255,.5);
+    text-align: center;
+    padding: 28px 6%;
+    font-size: .85rem;
+  }
+  footer strong { color: var(--sky); }
+  .footer-social {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    margin-top: 14px;
+  }
+  .footer-social a {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.07);
+    display: flex; align-items: center; justify-content: center;
+    color: rgba(255,255,255,.6);
+    font-size: .75rem;
+    text-decoration: none;
+    transition: background .2s, color .2s;
+  }
+  .footer-social a:hover { background: var(--sky); color: white; }
+
+  /* ── FADE-IN ── */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity .7s ease, transform .7s ease;
+  }
+  .fade-in.visible { opacity: 1; transform: none; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .hero-inner { grid-template-columns: 1fr; gap: 40px; padding-top: 100px; }
+    .hero-cards { grid-template-columns: repeat(2, 1fr); }
+    .contact-inner { grid-template-columns: 1fr; }
+    .contact-right { align-items: flex-start; }
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+  }
+  @media (max-width: 540px) {
+    .hero-cards { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .hcard { padding: 16px 14px; }
+    .hero-stats { gap: 18px; }
+    .stat-num { font-size: 1.5rem; }
+    section { padding: 60px 5%; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a class="nav-logo" href="#home">
+    <div class="nav-logo-circle">
+      <img src="jazo logo.jpeg" alt="Jazo Cleaners Logo" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">
+    </div>
+    <div class="nav-brand">Jazo <span>Cleaners</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#areas">Areas</a></li>
+    <li><a href="#contact" class="nav-cta">Book Now</a></li>
+  </ul>
+  <button class="hamburger" id="burger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#why"      onclick="closeMobile()">Why Us</a>
+  <a href="#services" onclick="closeMobile()">Services</a>
+  <a href="#areas"    onclick="closeMobile()">Areas</a>
+  <a href="#contact"  onclick="closeMobile()" class="m-cta">Book Now</a>
+</div>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-bubbles">
+    <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
+    <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
+    <div class="bubble"></div><div class="bubble"></div>
+  </div>
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-tag">Nairobi's Trusted Cleaning Experts</div>
+      <h1 class="hero-title">
+        Spotless Spaces,<br>
+        <span class="accent">Every Single Time.</span>
+      </h1>
+      <p class="hero-desc">
+        Professional cleaning services for homes, offices, carpets, sofas, and Airbnb properties. Serving Ruiru, Juja, Kimbo, Kahawa &amp; more.
+      </p>
+      <div class="hero-btns">
+        <a href="tel:0742386820" class="btn-primary">📞 Call Us Now</a>
+        <a href="#services" class="btn-outline">Our Services ↓</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><div class="stat-num">5<span>+</span></div><div class="stat-label">Services</div></div>
+        <div class="stat"><div class="stat-num">7<span>+</span></div><div class="stat-label">Areas Covered</div></div>
+        <div class="stat"><div class="stat-num">3<span>+</span></div><div class="stat-label">Contact Lines</div></div>
+      </div>
+    </div>
+    <div class="hero-cards">
+      <div class="hcard"><span class="hcard-icon">🏠</span><div class="hcard-title">House Cleaning</div><div class="hcard-desc">Deep &amp; regular home cleans</div></div>
+      <div class="hcard"><span class="hcard-icon">🏢</span><div class="hcard-title">Office Cleaning</div><div class="hcard-desc">Productive, pristine workspaces</div></div>
+      <div class="hcard"><span class="hcard-icon">🛋️</span><div class="hcard-title">Sofa Cleaning</div><div class="hcard-desc">Upholstery refresh &amp; sanitise</div></div>
+      <div class="hcard"><span class="hcard-icon">🏨</span><div class="hcard-title">BnB Cleaning</div><div class="hcard-desc">Guest-ready every turnover</div></div>
+    </div>
+  </div>
+  <div class="sweep"></div>
+</section>
+
+<!-- WHY US -->
+<section id="why">
+  <div class="why-grid">
+    <div class="fade-in" style="grid-column:1/-1; text-align:center; margin-bottom:10px;">
+      <div class="section-label">Why Choose Us</div>
+      <h2 class="section-title">Cleaning Done Right,<br>Every Time</h2>
+      <p class="section-sub" style="margin:0 auto;">We combine professionalism with a personal touch so your space is always left spotless and stress-free.</p>
+    </div>
+    <div class="why-card fade-in">
+      <div class="why-icon">✅</div>
+      <div class="why-title">Trained Professionals</div>
+      <div class="why-desc">Our team is skilled, vetted, and trained to handle every surface with care.</div>
+    </div>
+    <div class="why-card fade-in">
+      <div class="why-icon">🧴</div>
+      <div class="why-title">Quality Products</div>
+      <div class="why-desc">We use safe, effective cleaning products that protect your family and property.</div>
+    </div>
+    <div class="why-card fade-in">
+      <div class="why-icon">⏱️</div>
+      <div class="why-title">On Time, Every Time</div>
+      <div class="why-desc">We value your time and show up punctually, ready to deliver outstanding results.</div>
+    </div>
+    <div class="why-card fade-in">
+      <div class="why-icon">💰</div>
+      <div class="why-title">Affordable Rates</div>
+      <div class="why-desc">Premium cleaning that doesn't break the bank. Quality service at fair prices.</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-wrap">
+    <div class="centered fade-in">
+      <div class="section-label">What We Offer</div>
+      <h2 class="section-title">Our Cleaning Services</h2>
+      <p class="section-sub">From residential deep cleans to commercial spaces, we've got you covered with tailored cleaning solutions.</p>
+    </div>
+    <div class="services-grid">
+      <div class="svc-card fade-in">
+        <div class="svc-top">
+          <div class="svc-num">01</div>
+          <span class="svc-icon">🏠</span>
+          <div class="svc-name">House Cleaning</div>
+          <div class="svc-desc">Thorough residential cleaning covering every corner — kitchens, bathrooms, bedrooms and living areas.</div>
+        </div>
+        <div class="svc-footer"><span>Residential · Regular &amp; Deep Clean</span><div class="svc-arrow">→</div></div>
+      </div>
+      <div class="svc-card fade-in">
+        <div class="svc-top">
+          <div class="svc-num">02</div>
+          <span class="svc-icon">🏢</span>
+          <div class="svc-name">Office Cleaning</div>
+          <div class="svc-desc">Keep your workplace clean, hygienic and productive. Scheduled or one-off office clean services.</div>
+        </div>
+        <div class="svc-footer"><span>Commercial · Flexible Scheduling</span><div class="svc-arrow">→</div></div>
+      </div>
+      <div class="svc-card fade-in">
+        <div class="svc-top">
+          <div class="svc-num">03</div>
+          <span class="svc-icon">🪞</span>
+          <div class="svc-name">Carpet Cleaning</div>
+          <div class="svc-desc">Professional carpet shampooing and steam cleaning to remove stains, odours, and allergens.</div>
+        </div>
+        <div class="svc-footer"><span>Deep Clean · Stain Removal</span><div class="svc-arrow">→</div></div>
+      </div>
+      <div class="svc-card fade-in">
+        <div class="svc-top">
+          <div class="svc-num">04</div>
+          <span class="svc-icon">🛋️</span>
+          <div class="svc-name">Sofa Cleaning</div>
+          <div class="svc-desc">Upholstery deep clean that revives your sofa, removes odours, and sanitises fabric or leather.</div>
+        </div>
+        <div class="svc-footer"><span>Upholstery · Fabric &amp; Leather</span><div class="svc-arrow">→</div></div>
+      </div>
+      <div class="svc-card fade-in">
+        <div class="svc-top">
+          <div class="svc-num">05</div>
+          <span class="svc-icon">🏨</span>
+          <div class="svc-name">BnB Cleaning</div>
+          <div class="svc-desc">Fast, thorough turnovers for Airbnb and short-let properties. Guest-ready, every single time.</div>
+        </div>
+        <div class="svc-footer"><span>Short-Let · Turnover Cleans</span><div class="svc-arrow">→</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AREAS -->
+<section id="areas">
+  <div class="areas-wrap">
+    <div class="fade-in">
+      <div class="section-label" style="color:var(--sky);">Where We Operate</div>
+      <h2 class="section-title">Areas We Serve</h2>
+      <p class="section-sub">We cover the following locations in and around Nairobi. Don't see your area? Give us a call — we'll do our best to reach you!</p>
+    </div>
+    <div class="areas-grid fade-in">
+      <div class="area-pill">Kenyatta Road</div>
+      <div class="area-pill">Juja</div>
+      <div class="area-pill">Kimbo</div>
+      <div class="area-pill">Ruiru</div>
+      <div class="area-pill">Kahawa Sukari</div>
+      <div class="area-pill">Kahawa Wendani</div>
+      <div class="area-pill">Roysambu</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT / CTA -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="fade-in">
+      <div class="section-label" style="color:rgba(255,255,255,.6);">Get In Touch</div>
+      <h2 class="section-title" style="color:white;">Ready for a Spotless Space?</h2>
+      <p class="section-sub" style="color:rgba(255,255,255,.65);">Call or WhatsApp us today and get a free quote. We'll handle the mess so you can enjoy a clean, stress-free environment.</p>
+    </div>
+    <div class="contact-right fade-in">
+      <a href="tel:0742386820" class="contact-num"><div class="icon">📞</div>0742 386 820</a>
+      <a href="tel:0720663044" class="contact-num"><div class="icon">📞</div>0720 663 044</a>
+      <a href="tel:0741139330" class="contact-num"><div class="icon">📞</div>0741 139 330</a>
+      <a href="https://wa.me/254720663044" class="btn-white" target="_blank">💬 WhatsApp Us</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 <strong>Jazo Cleaners</strong>. Professional Cleaning Services in Nairobi &amp; Surroundings.</p>
+  <p style="margin-top:6px;">Follow us on TikTok: <strong>@jazocleaners</strong></p>
+  <div class="footer-social">
+    <a href="#" title="TikTok">TT</a>
+    <a href="#" title="WhatsApp">WA</a>
+    <a href="#" title="Facebook">FB</a>
+  </div>
+</footer>
+
+<script>
+  // Nav scroll
+  const nav = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // Hamburger
+  const burger = document.getElementById('burger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  burger.addEventListener('click', () => {
+    burger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+  function closeMobile() {
+    burger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+  }
+
+  // Fade-in on scroll
+  const faders = document.querySelectorAll('.fade-in');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  faders.forEach(f => observer.observe(f));
+</script>
+</body>
+</html>
