@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Jazo Cleaners – Professional Cleaning Services</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" type="image/jpeg" href="jazo logo.jpeg">
 <style>
   :root {
     --navy: #1a2a6c;
@@ -23,26 +24,14 @@
   body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--dark); overflow-x: hidden; }
 
   /* ── NAV ── */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 14px 6%;
-    background: rgba(10, 20, 60, 0.95);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(41, 182, 246, 0.15);
-    transition: padding .3s;
-  }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 14px 6%; background: rgba(10,20,60,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(41,182,246,0.15); transition: padding .3s; }
   nav.scrolled { padding: 10px 6%; }
   .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-  .nav-logo-circle {
-    width: 44px; height: 44px; border-radius: 50%; background: white;
-    display: flex; align-items: center; justify-content: center;
-    overflow: hidden; flex-shrink: 0; box-shadow: 0 0 0 2px var(--sky);
-  }
+  .nav-logo-circle { width: 44px; height: 44px; border-radius: 50%; background: white; display: flex; align-items: center; justify-content: center; overflow: hidden; flex-shrink: 0; box-shadow: 0 0 0 2px var(--sky); }
   .nav-brand { color: white; font-family: 'Playfair Display', serif; font-size: 1.2rem; line-height: 1.1; }
   .nav-brand span { display: block; font-size: .65rem; font-family: 'DM Sans', sans-serif; font-weight: 400; color: var(--sky); letter-spacing: .15em; text-transform: uppercase; }
-  .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
-  .nav-links a { color: rgba(255,255,255,.8); text-decoration: none; font-size: .9rem; font-weight: 500; transition: color .2s; position: relative; }
+  .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
+  .nav-links a { color: rgba(255,255,255,.8); text-decoration: none; font-size: .88rem; font-weight: 500; transition: color .2s; position: relative; }
   .nav-links a::after { content: ''; position: absolute; bottom: -3px; left: 0; right: 100%; height: 2px; background: var(--sky); transition: right .3s; }
   .nav-links a:hover { color: white; }
   .nav-links a:hover::after { right: 0; }
@@ -80,12 +69,58 @@
   .hero-title { font-family: 'Playfair Display', serif; font-size: clamp(2.4rem, 5vw, 4rem); line-height: 1.1; color: white; margin-bottom: 20px; }
   .hero-title .accent { background: linear-gradient(90deg, var(--sky), var(--lime)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
   .hero-desc { color: rgba(255,255,255,.7); font-size: 1.05rem; line-height: 1.7; max-width: 480px; margin-bottom: 36px; }
-  .hero-btns { display: flex; flex-wrap: wrap; gap: 14px; }
-  .btn-primary { background: linear-gradient(135deg, var(--sky) 0%, var(--blue) 100%); color: white; padding: 14px 30px; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: .95rem; box-shadow: 0 6px 25px rgba(41,182,246,.4); transition: transform .25s, box-shadow .25s; display: inline-flex; align-items: center; gap: 8px; }
+  .hero-btns { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 44px; }
+  .btn-primary { background: linear-gradient(135deg, var(--sky) 0%, var(--blue) 100%); color: white; padding: 14px 30px; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: .95rem; box-shadow: 0 6px 25px rgba(41,182,246,.4); transition: transform .25s, box-shadow .25s; display: inline-flex; align-items: center; gap: 8px; cursor: pointer; border: none; font-family: 'DM Sans', sans-serif; }
   .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 35px rgba(41,182,246,.55); }
-  .btn-outline { border: 2px solid rgba(255,255,255,.3); color: white; padding: 13px 28px; border-radius: 50px; text-decoration: none; font-weight: 500; font-size: .95rem; transition: border-color .25s, background .25s; }
+  .btn-outline { border: 2px solid rgba(255,255,255,.3); color: white; padding: 13px 28px; border-radius: 50px; text-decoration: none; font-weight: 500; font-size: .95rem; transition: border-color .25s, background .25s; display: inline-flex; align-items: center; gap: 8px; }
   .btn-outline:hover { border-color: var(--sky); background: rgba(41,182,246,.08); }
-  .hero-stats { display: flex; gap: 28px; margin-top: 44px; }
+
+  /* ── HERO QUOTE BUTTON ── */
+  .btn-quote {
+    background: white;
+    color: var(--navy);
+    padding: 14px 30px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: .95rem;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    font-family: 'DM Sans', sans-serif;
+    box-shadow: 0 6px 25px rgba(0,0,0,.2);
+    transition: transform .25s, box-shadow .25s;
+    position: relative;
+    overflow: hidden;
+  }
+  .btn-quote::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--sky), var(--lime));
+    opacity: 0;
+    transition: opacity .3s;
+  }
+  .btn-quote:hover::before { opacity: .12; }
+  .btn-quote:hover { transform: translateY(-3px); box-shadow: 0 10px 35px rgba(0,0,0,.3); }
+  .btn-quote .q-pulse {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--green);
+    position: relative;
+    flex-shrink: 0;
+  }
+  .btn-quote .q-pulse::after {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    border: 2px solid var(--green);
+    animation: pulse 1.6s ease-out infinite;
+  }
+  @keyframes pulse { 0% { opacity: 1; transform: scale(1); } 100% { opacity: 0; transform: scale(2.2); } }
+
+  .hero-stats { display: flex; gap: 28px; }
   .stat { text-align: left; }
   .stat-num { font-family: 'Playfair Display', serif; font-size: 1.9rem; color: white; line-height: 1; }
   .stat-num span { color: var(--sky); }
@@ -96,6 +131,34 @@
   .hcard-icon { font-size: 1.8rem; margin-bottom: 10px; display: block; }
   .hcard-title { color: white; font-weight: 600; font-size: .95rem; margin-bottom: 5px; }
   .hcard-desc { color: rgba(255,255,255,.5); font-size: .78rem; line-height: 1.5; }
+
+  /* ── STATS STRIP ── */
+  #stats { background: white; padding: 0; border-bottom: 1px solid rgba(26,42,108,.06); }
+  .stats-strip {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 0 6%;
+  }
+  .stats-item {
+    padding: 36px 20px;
+    text-align: center;
+    border-right: 1px solid rgba(26,42,108,.07);
+    position: relative;
+  }
+  .stats-item:last-child { border-right: none; }
+  .stats-item-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.6rem;
+    font-weight: 900;
+    color: var(--navy);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .stats-item-num span { color: var(--sky); }
+  .stats-item-label { font-size: .82rem; color: var(--gray); font-weight: 500; }
+  .stats-item-icon { font-size: 1.4rem; margin-bottom: 8px; display: block; }
 
   /* ── SECTION SHARED ── */
   section { padding: 80px 6%; }
@@ -118,16 +181,46 @@
   #services { background: white; }
   .services-wrap { max-width: 1200px; margin: 0 auto; }
   .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 50px; }
-  .svc-card { border-radius: 20px; overflow: hidden; background: var(--light); border: 1px solid rgba(26,42,108,.07); transition: transform .3s, box-shadow .3s; position: relative; cursor: pointer; }
+  .svc-card { border-radius: 20px; overflow: hidden; background: var(--light); border: 1px solid rgba(26,42,108,.07); transition: transform .3s, box-shadow .3s; position: relative; cursor: pointer; display: flex; flex-direction: column; }
   .svc-card:hover { transform: translateY(-6px); box-shadow: 0 16px 48px rgba(26,42,108,.12); }
-  .svc-top { padding: 36px 28px 28px; position: relative; }
+  .svc-top { padding: 36px 28px 24px; position: relative; flex: 1; }
   .svc-num { position: absolute; top: 20px; right: 24px; font-family: 'Playfair Display', serif; font-size: 3rem; color: rgba(26,42,108,.06); line-height: 1; font-weight: 900; }
   .svc-icon { font-size: 2.2rem; margin-bottom: 14px; display: block; }
   .svc-name { font-family: 'Playfair Display', serif; font-size: 1.25rem; color: var(--dark); font-weight: 700; margin-bottom: 8px; }
-  .svc-desc { font-size: .88rem; color: var(--gray); line-height: 1.65; }
-  .svc-footer { background: linear-gradient(135deg, var(--navy), var(--blue)); padding: 14px 28px; display: flex; align-items: center; justify-content: space-between; }
-  .svc-footer span { color: rgba(255,255,255,.8); font-size: .8rem; }
-  .svc-arrow { width: 30px; height: 30px; border-radius: 50%; background: rgba(255,255,255,.15); display: flex; align-items: center; justify-content: center; color: white; font-size: .8rem; transition: background .2s, transform .2s; }
+  .svc-desc { font-size: .88rem; color: var(--gray); line-height: 1.65; margin-bottom: 18px; }
+  .svc-cta-row { display: flex; gap: 10px; margin-top: auto; }
+  .svc-btn-details {
+    flex: 1;
+    padding: 10px 0;
+    border: 1.5px solid rgba(26,42,108,.2);
+    background: white;
+    border-radius: 50px;
+    font-size: .82rem;
+    font-weight: 600;
+    color: var(--navy);
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    transition: border-color .2s, background .2s;
+  }
+  .svc-btn-details:hover { border-color: var(--sky); background: rgba(41,182,246,.04); color: var(--blue); }
+  .svc-btn-book {
+    flex: 1;
+    padding: 10px 0;
+    border: none;
+    background: linear-gradient(135deg, var(--sky), var(--blue));
+    border-radius: 50px;
+    font-size: .82rem;
+    font-weight: 700;
+    color: white;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    transition: transform .2s, box-shadow .2s;
+    box-shadow: 0 4px 12px rgba(41,182,246,.3);
+  }
+  .svc-btn-book:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(41,182,246,.45); }
+  .svc-footer { background: linear-gradient(135deg, var(--navy), var(--blue)); padding: 12px 28px; display: flex; align-items: center; justify-content: space-between; }
+  .svc-footer span { color: rgba(255,255,255,.8); font-size: .78rem; }
+  .svc-arrow { width: 28px; height: 28px; border-radius: 50%; background: rgba(255,255,255,.15); display: flex; align-items: center; justify-content: center; color: white; font-size: .8rem; transition: background .2s, transform .2s; }
   .svc-card:hover .svc-arrow { background: var(--sky); transform: translateX(3px); }
 
   /* ── AREAS ── */
@@ -150,7 +243,7 @@
   .contact-num { color: white; text-decoration: none; font-size: 1.3rem; font-weight: 700; display: flex; align-items: center; gap: 10px; transition: color .2s; }
   .contact-num:hover { color: var(--sky); }
   .contact-num .icon { width: 42px; height: 42px; border-radius: 50%; background: rgba(255,255,255,.15); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; }
-  .btn-white { background: white; color: var(--navy); padding: 13px 28px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: .9rem; transition: transform .25s, box-shadow .25s; white-space: nowrap; }
+  .btn-white { background: white; color: var(--navy); padding: 13px 28px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: .9rem; transition: transform .25s, box-shadow .25s; white-space: nowrap; display: inline-block; }
   .btn-white:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(0,0,0,.2); }
 
   /* ── FOOTER ── */
@@ -165,39 +258,12 @@
   .fade-in.visible { opacity: 1; transform: none; }
 
   /* ── SERVICE DETAIL MODAL ── */
-  .modal-overlay {
-    display: none;
-    position: fixed; inset: 0; z-index: 200;
-    background: rgba(7, 16, 42, 0.75);
-    backdrop-filter: blur(6px);
-    align-items: center; justify-content: center;
-    padding: 20px;
-  }
+  .modal-overlay { display: none; position: fixed; inset: 0; z-index: 200; background: rgba(7,16,42,0.75); backdrop-filter: blur(6px); align-items: center; justify-content: center; padding: 20px; }
   .modal-overlay.open { display: flex; }
-  .modal-box {
-    background: white;
-    border-radius: 24px;
-    width: 100%; max-width: 520px;
-    max-height: 90vh;
-    overflow-y: auto;
-    box-shadow: 0 30px 80px rgba(0,0,0,.35);
-    animation: modalIn .3s cubic-bezier(.34,1.56,.64,1);
-  }
+  .modal-box { background: white; border-radius: 24px; width: 100%; max-width: 520px; max-height: 90vh; overflow-y: auto; box-shadow: 0 30px 80px rgba(0,0,0,.35); animation: modalIn .3s cubic-bezier(.34,1.56,.64,1); }
   @keyframes modalIn { from { opacity:0; transform: scale(.92) translateY(20px); } to { opacity:1; transform: none; } }
-  .modal-header {
-    background: linear-gradient(135deg, var(--navy), var(--blue));
-    padding: 32px 30px 24px;
-    border-radius: 24px 24px 0 0;
-    position: relative;
-  }
-  .modal-close {
-    position: absolute; top: 16px; right: 16px;
-    background: rgba(255,255,255,.15); border: none; cursor: pointer;
-    width: 34px; height: 34px; border-radius: 50%;
-    color: white; font-size: 1.1rem;
-    display: flex; align-items: center; justify-content: center;
-    transition: background .2s;
-  }
+  .modal-header { background: linear-gradient(135deg, var(--navy), var(--blue)); padding: 32px 30px 24px; border-radius: 24px 24px 0 0; position: relative; }
+  .modal-close { position: absolute; top: 16px; right: 16px; background: rgba(255,255,255,.15); border: none; cursor: pointer; width: 34px; height: 34px; border-radius: 50%; color: white; font-size: 1.1rem; display: flex; align-items: center; justify-content: center; transition: background .2s; }
   .modal-close:hover { background: rgba(255,255,255,.3); }
   .modal-icon { font-size: 2.6rem; margin-bottom: 10px; display: block; }
   .modal-title { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: white; margin-bottom: 6px; }
@@ -207,83 +273,47 @@
   .modal-features { list-style: none; margin-bottom: 28px; display: flex; flex-direction: column; gap: 10px; }
   .modal-features li { display: flex; align-items: flex-start; gap: 10px; font-size: .9rem; color: var(--dark); }
   .modal-features li::before { content: '✓'; background: linear-gradient(135deg, var(--sky), var(--lime)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 700; font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
-  .modal-book-btn {
-    width: 100%; padding: 15px; border: none; cursor: pointer;
-    background: linear-gradient(135deg, var(--sky), var(--blue));
-    color: white; font-size: 1rem; font-weight: 700;
-    border-radius: 50px; box-shadow: 0 6px 25px rgba(41,182,246,.4);
-    transition: transform .25s, box-shadow .25s;
-    font-family: 'DM Sans', sans-serif;
-    display: flex; align-items: center; justify-content: center; gap: 8px;
-  }
+  .modal-book-btn { width: 100%; padding: 15px; border: none; cursor: pointer; background: linear-gradient(135deg, var(--sky), var(--blue)); color: white; font-size: 1rem; font-weight: 700; border-radius: 50px; box-shadow: 0 6px 25px rgba(41,182,246,.4); transition: transform .25s, box-shadow .25s; font-family: 'DM Sans', sans-serif; display: flex; align-items: center; justify-content: center; gap: 8px; }
   .modal-book-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 35px rgba(41,182,246,.55); }
 
+  /* ── QUOTE MODAL ── */
+  .quote-modal-overlay { display: none; position: fixed; inset: 0; z-index: 250; background: rgba(7,16,42,0.8); backdrop-filter: blur(6px); align-items: center; justify-content: center; padding: 20px; }
+  .quote-modal-overlay.open { display: flex; }
+  .quote-box { background: white; border-radius: 24px; width: 100%; max-width: 540px; max-height: 92vh; overflow-y: auto; box-shadow: 0 30px 80px rgba(0,0,0,.4); animation: modalIn .3s cubic-bezier(.34,1.56,.64,1); }
+  .quote-header { background: linear-gradient(135deg, var(--dark), var(--navy)); padding: 28px 30px 22px; border-radius: 24px 24px 0 0; position: relative; }
+  .quote-header-row { display: flex; align-items: center; gap: 14px; }
+  .quote-header-icon { font-size: 2rem; }
+  .quote-header-text h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: white; }
+  .quote-header-text p { font-size: .8rem; color: rgba(255,255,255,.55); margin-top: 3px; }
+  .quote-close { position: absolute; top: 16px; right: 16px; background: rgba(255,255,255,.15); border: none; cursor: pointer; width: 34px; height: 34px; border-radius: 50%; color: white; font-size: 1.1rem; display: flex; align-items: center; justify-content: center; transition: background .2s; }
+  .quote-close:hover { background: rgba(255,255,255,.3); }
+  .quote-body { padding: 26px 30px 30px; display: flex; flex-direction: column; gap: 16px; }
+  .quote-service-select { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .q-svc-opt { padding: 10px 12px; border: 1.5px solid #dde3f0; border-radius: 10px; font-size: .82rem; font-weight: 500; color: var(--dark); cursor: pointer; background: #fafbff; transition: all .2s; text-align: center; font-family: 'DM Sans', sans-serif; }
+  .q-svc-opt:hover { border-color: var(--sky); background: rgba(41,182,246,.05); }
+  .q-svc-opt.selected { border-color: var(--sky); background: rgba(41,182,246,.1); color: var(--blue); font-weight: 700; }
+  .form-group { display: flex; flex-direction: column; gap: 6px; }
+  .form-group label { font-size: .82rem; font-weight: 600; color: var(--dark); letter-spacing: .03em; }
+  .form-group input, .form-group select, .form-group textarea { padding: 11px 14px; border: 1.5px solid #dde3f0; border-radius: 12px; font-size: .92rem; font-family: 'DM Sans', sans-serif; color: var(--dark); background: #fafbff; transition: border-color .2s, box-shadow .2s; outline: none; width: 100%; }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--sky); box-shadow: 0 0 0 3px rgba(41,182,246,.12); background: white; }
+  .form-group textarea { resize: vertical; min-height: 75px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .form-section-label { font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: var(--blue); padding-bottom: 4px; border-bottom: 1px solid rgba(26,42,108,.08); }
+  .wa-send-btn { width: 100%; padding: 14px; border: none; cursor: pointer; background: #25D366; color: white; font-size: 1rem; font-weight: 700; border-radius: 50px; transition: transform .25s, box-shadow .25s; font-family: 'DM Sans', sans-serif; display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 4px; box-shadow: 0 6px 25px rgba(37,211,102,.35); }
+  .wa-send-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 35px rgba(37,211,102,.5); }
+  .wa-icon { width: 22px; height: 22px; flex-shrink: 0; }
+
   /* ── BOOKING FORM MODAL ── */
-  .form-modal-overlay {
-    display: none;
-    position: fixed; inset: 0; z-index: 300;
-    background: rgba(7, 16, 42, 0.8);
-    backdrop-filter: blur(6px);
-    align-items: center; justify-content: center;
-    padding: 20px;
-  }
+  .form-modal-overlay { display: none; position: fixed; inset: 0; z-index: 300; background: rgba(7,16,42,0.8); backdrop-filter: blur(6px); align-items: center; justify-content: center; padding: 20px; }
   .form-modal-overlay.open { display: flex; }
-  .form-box {
-    background: white;
-    border-radius: 24px;
-    width: 100%; max-width: 500px;
-    max-height: 92vh;
-    overflow-y: auto;
-    box-shadow: 0 30px 80px rgba(0,0,0,.4);
-    animation: modalIn .3s cubic-bezier(.34,1.56,.64,1);
-  }
-  .form-header {
-    background: linear-gradient(135deg, var(--navy), var(--blue));
-    padding: 24px 28px 20px;
-    border-radius: 24px 24px 0 0;
-    position: relative;
-    display: flex; align-items: center; gap: 12px;
-  }
+  .form-box { background: white; border-radius: 24px; width: 100%; max-width: 500px; max-height: 92vh; overflow-y: auto; box-shadow: 0 30px 80px rgba(0,0,0,.4); animation: modalIn .3s cubic-bezier(.34,1.56,.64,1); }
+  .form-header { background: linear-gradient(135deg, var(--navy), var(--blue)); padding: 24px 28px 20px; border-radius: 24px 24px 0 0; position: relative; display: flex; align-items: center; gap: 12px; }
   .form-header-icon { font-size: 1.6rem; }
   .form-header-text h3 { font-family: 'Playfair Display', serif; font-size: 1.25rem; color: white; }
   .form-header-text p { font-size: .78rem; color: rgba(255,255,255,.6); margin-top: 2px; }
   .form-close { position: absolute; top: 16px; right: 16px; background: rgba(255,255,255,.15); border: none; cursor: pointer; width: 34px; height: 34px; border-radius: 50%; color: white; font-size: 1.1rem; display: flex; align-items: center; justify-content: center; transition: background .2s; }
   .form-close:hover { background: rgba(255,255,255,.3); }
   .form-body { padding: 24px 28px 28px; display: flex; flex-direction: column; gap: 16px; }
-  .form-group { display: flex; flex-direction: column; gap: 6px; }
-  .form-group label { font-size: .82rem; font-weight: 600; color: var(--dark); letter-spacing: .03em; }
-  .form-group input,
-  .form-group select,
-  .form-group textarea {
-    padding: 11px 14px;
-    border: 1.5px solid #dde3f0;
-    border-radius: 12px;
-    font-size: .92rem;
-    font-family: 'DM Sans', sans-serif;
-    color: var(--dark);
-    background: #fafbff;
-    transition: border-color .2s, box-shadow .2s;
-    outline: none;
-    width: 100%;
-  }
-  .form-group input:focus,
-  .form-group select:focus,
-  .form-group textarea:focus { border-color: var(--sky); box-shadow: 0 0 0 3px rgba(41,182,246,.12); background: white; }
-  .form-group textarea { resize: vertical; min-height: 80px; }
-  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-  .wa-send-btn {
-    width: 100%; padding: 14px; border: none; cursor: pointer;
-    background: #25D366;
-    color: white; font-size: 1rem; font-weight: 700;
-    border-radius: 50px;
-    transition: transform .25s, box-shadow .25s;
-    font-family: 'DM Sans', sans-serif;
-    display: flex; align-items: center; justify-content: center; gap: 10px;
-    margin-top: 4px;
-    box-shadow: 0 6px 25px rgba(37,211,102,.35);
-  }
-  .wa-send-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 35px rgba(37,211,102,.5); }
-  .wa-icon { width: 22px; height: 22px; }
 
   /* ── RESPONSIVE ── */
   @media (max-width: 900px) {
@@ -293,6 +323,10 @@
     .contact-right { align-items: flex-start; }
     .nav-links { display: none; }
     .hamburger { display: flex; }
+    .stats-strip { grid-template-columns: repeat(2, 1fr); }
+    .stats-item:nth-child(2) { border-right: none; }
+    .stats-item:nth-child(3) { border-right: 1px solid rgba(26,42,108,.07); border-top: 1px solid rgba(26,42,108,.07); }
+    .stats-item:nth-child(4) { border-right: none; border-top: 1px solid rgba(26,42,108,.07); }
   }
   @media (max-width: 540px) {
     .hero-cards { grid-template-columns: 1fr 1fr; gap: 10px; }
@@ -303,6 +337,11 @@
     .form-row { grid-template-columns: 1fr; }
     .modal-body { padding: 22px 20px; }
     .form-body { padding: 20px; }
+    .quote-body { padding: 20px; }
+    .quote-service-select { grid-template-columns: 1fr; }
+    .stats-strip { grid-template-columns: repeat(2, 1fr); }
+    .hero-btns { flex-direction: column; }
+    .btn-primary, .btn-outline, .btn-quote { width: 100%; justify-content: center; }
   }
 </style>
 </head>
@@ -354,23 +393,53 @@
       </p>
       <div class="hero-btns">
         <a href="tel:0742386820" class="btn-primary">📞 Call Us Now</a>
+        <button class="btn-quote" onclick="openQuoteModal()">
+          <span class="q-pulse"></span>
+          Get a Quote
+        </button>
         <a href="#services" class="btn-outline">Our Services ↓</a>
       </div>
       <div class="hero-stats">
-        <div class="stat"><div class="stat-num">6<span>+</span></div><div class="stat-label">Services</div></div>
+        <div class="stat"><div class="stat-num">200<span>+</span></div><div class="stat-label">Happy Clients</div></div>
+        <div class="stat"><div class="stat-num">7<span>+</span></div><div class="stat-label">Services</div></div>
         <div class="stat"><div class="stat-num">4<span>+</span></div><div class="stat-label">Counties Covered</div></div>
-        <div class="stat"><div class="stat-num">3<span>+</span></div><div class="stat-label">Contact Lines</div></div>
       </div>
     </div>
     <div class="hero-cards">
       <div class="hcard" onclick="openServiceModal('house')"><span class="hcard-icon">🏠</span><div class="hcard-title">House Cleaning</div><div class="hcard-desc">Deep &amp; regular home cleans</div></div>
       <div class="hcard" onclick="openServiceModal('office')"><span class="hcard-icon">🏢</span><div class="hcard-title">Office Cleaning</div><div class="hcard-desc">Productive, pristine workspaces</div></div>
       <div class="hcard" onclick="openServiceModal('sofa')"><span class="hcard-icon">🛋️</span><div class="hcard-title">Sofa Cleaning</div><div class="hcard-desc">Upholstery refresh &amp; sanitise</div></div>
-      <div class="hcard" onclick="openServiceModal('bnb')"><span class="hcard-icon">🏨</span><div class="hcard-title">BnB Cleaning</div><div class="hcard-desc">Guest-ready every turnover</div></div>
+      <div class="hcard" onclick="openServiceModal('nannies')"><span class="hcard-icon">👶</span><div class="hcard-title">Short Stay Nannies</div><div class="hcard-desc">Trusted care when you need it</div></div>
     </div>
   </div>
   <div class="sweep"></div>
 </section>
+
+<!-- STATS STRIP -->
+<div id="stats">
+  <div class="stats-strip">
+    <div class="stats-item fade-in">
+      <span class="stats-item-icon">😊</span>
+      <div class="stats-item-num">200<span>+</span></div>
+      <div class="stats-item-label">Happy Clients Served</div>
+    </div>
+    <div class="stats-item fade-in">
+      <span class="stats-item-icon">✅</span>
+      <div class="stats-item-num">850<span>+</span></div>
+      <div class="stats-item-label">Cleaning Jobs Completed</div>
+    </div>
+    <div class="stats-item fade-in">
+      <span class="stats-item-icon">⭐</span>
+      <div class="stats-item-num">5<span>/5</span></div>
+      <div class="stats-item-label">Average Client Rating</div>
+    </div>
+    <div class="stats-item fade-in">
+      <span class="stats-item-icon">📍</span>
+      <div class="stats-item-num">4<span>+</span></div>
+      <div class="stats-item-label">Counties We Cover</div>
+    </div>
+  </div>
+</div>
 
 <!-- WHY US -->
 <section id="why">
@@ -409,63 +478,101 @@
     <div class="centered fade-in">
       <div class="section-label">What We Offer</div>
       <h2 class="section-title">Our Cleaning Services</h2>
-      <p class="section-sub">From residential deep cleans to post-construction sites, we've got you covered with tailored cleaning solutions. Click any service to learn more.</p>
+      <p class="section-sub">From residential deep cleans to post-construction sites, we've got you covered. Click any service to learn more or book instantly.</p>
     </div>
     <div class="services-grid">
-      <div class="svc-card fade-in" onclick="openServiceModal('house')">
+
+      <div class="svc-card fade-in">
         <div class="svc-top">
           <div class="svc-num">01</div>
           <span class="svc-icon">🏠</span>
           <div class="svc-name">House Cleaning</div>
           <div class="svc-desc">Thorough residential cleaning covering every corner — kitchens, bathrooms, bedrooms and living areas.</div>
+          <div class="svc-cta-row">
+            <button class="svc-btn-details" onclick="openServiceModal('house')">View Details</button>
+            <button class="svc-btn-book" onclick="openBookingFormDirect('house')">📅 Book Now</button>
+          </div>
         </div>
-        <div class="svc-footer"><span>Residential · Regular &amp; Deep Clean</span><div class="svc-arrow">→</div></div>
       </div>
-      <div class="svc-card fade-in" onclick="openServiceModal('office')">
+
+      <div class="svc-card fade-in">
         <div class="svc-top">
           <div class="svc-num">02</div>
           <span class="svc-icon">🏢</span>
           <div class="svc-name">Office Cleaning</div>
           <div class="svc-desc">Keep your workplace clean, hygienic and productive. Scheduled or one-off office clean services.</div>
+          <div class="svc-cta-row">
+            <button class="svc-btn-details" onclick="openServiceModal('office')">View Details</button>
+            <button class="svc-btn-book" onclick="openBookingFormDirect('office')">📅 Book Now</button>
+          </div>
         </div>
-        <div class="svc-footer"><span>Commercial · Flexible Scheduling</span><div class="svc-arrow">→</div></div>
       </div>
-      <div class="svc-card fade-in" onclick="openServiceModal('carpet')">
+
+      <div class="svc-card fade-in">
         <div class="svc-top">
           <div class="svc-num">03</div>
           <span class="svc-icon">🪞</span>
           <div class="svc-name">Carpet Cleaning</div>
           <div class="svc-desc">Professional carpet shampooing and steam cleaning to remove stains, odours, and allergens.</div>
+          <div class="svc-cta-row">
+            <button class="svc-btn-details" onclick="openServiceModal('carpet')">View Details</button>
+            <button class="svc-btn-book" onclick="openBookingFormDirect('carpet')">📅 Book Now</button>
+          </div>
         </div>
-        <div class="svc-footer"><span>Deep Clean · Stain Removal</span><div class="svc-arrow">→</div></div>
       </div>
-      <div class="svc-card fade-in" onclick="openServiceModal('sofa')">
+
+      <div class="svc-card fade-in">
         <div class="svc-top">
           <div class="svc-num">04</div>
           <span class="svc-icon">🛋️</span>
           <div class="svc-name">Sofa Cleaning</div>
           <div class="svc-desc">Upholstery deep clean that revives your sofa, removes odours, and sanitises fabric or leather.</div>
+          <div class="svc-cta-row">
+            <button class="svc-btn-details" onclick="openServiceModal('sofa')">View Details</button>
+            <button class="svc-btn-book" onclick="openBookingFormDirect('sofa')">📅 Book Now</button>
+          </div>
         </div>
-        <div class="svc-footer"><span>Upholstery · Fabric &amp; Leather</span><div class="svc-arrow">→</div></div>
       </div>
-      <div class="svc-card fade-in" onclick="openServiceModal('bnb')">
+
+      <div class="svc-card fade-in">
         <div class="svc-top">
           <div class="svc-num">05</div>
           <span class="svc-icon">🏨</span>
           <div class="svc-name">BnB Cleaning</div>
           <div class="svc-desc">Fast, thorough turnovers for Airbnb and short-let properties. Guest-ready, every single time.</div>
+          <div class="svc-cta-row">
+            <button class="svc-btn-details" onclick="openServiceModal('bnb')">View Details</button>
+            <button class="svc-btn-book" onclick="openBookingFormDirect('bnb')">📅 Book Now</button>
+          </div>
         </div>
-        <div class="svc-footer"><span>Short-Let · Turnover Cleans</span><div class="svc-arrow">→</div></div>
       </div>
-      <div class="svc-card fade-in" onclick="openServiceModal('postconstruction')">
+
+      <div class="svc-card fade-in">
         <div class="svc-top">
           <div class="svc-num">06</div>
           <span class="svc-icon">🏗️</span>
           <div class="svc-name">Post-Construction Cleaning</div>
-          <div class="svc-desc">Specialist cleaning after building or renovation work — removing dust, debris, and construction residue for a move-in ready space.</div>
+          <div class="svc-desc">Specialist cleaning after building or renovation work — removing dust, debris, and residue for a move-in ready space.</div>
+          <div class="svc-cta-row">
+            <button class="svc-btn-details" onclick="openServiceModal('postconstruction')">View Details</button>
+            <button class="svc-btn-book" onclick="openBookingFormDirect('postconstruction')">📅 Book Now</button>
+          </div>
         </div>
-        <div class="svc-footer"><span>Construction · Renovation Clean-Up</span><div class="svc-arrow">→</div></div>
       </div>
+
+      <div class="svc-card fade-in">
+        <div class="svc-top">
+          <div class="svc-num">07</div>
+          <span class="svc-icon">👶</span>
+          <div class="svc-name">Short Stay Nannies</div>
+          <div class="svc-desc">Trusted, vetted nannies available for short-term childcare — perfect for events, travel days, or when you need reliable cover.</div>
+          <div class="svc-cta-row">
+            <button class="svc-btn-details" onclick="openServiceModal('nannies')">View Details</button>
+            <button class="svc-btn-book" onclick="openBookingFormDirect('nannies')">📅 Book Now</button>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -532,13 +639,63 @@
   </div>
 </div>
 
+<!-- ── QUOTE MODAL ── -->
+<div class="quote-modal-overlay" id="quoteModal">
+  <div class="quote-box">
+    <div class="quote-header">
+      <div class="quote-header-row">
+        <div class="quote-header-icon">💬</div>
+        <div class="quote-header-text">
+          <h3>Get a Free Quote</h3>
+          <p>We'll get back to you within the hour</p>
+        </div>
+      </div>
+      <button class="quote-close" onclick="closeQuoteModal()">✕</button>
+    </div>
+    <div class="quote-body">
+      <div class="form-section-label">Select Service(s)</div>
+      <div class="quote-service-select" id="quoteSvcSelect">
+        <div class="q-svc-opt" onclick="toggleSvc(this,'House Cleaning')">🏠 House Cleaning</div>
+        <div class="q-svc-opt" onclick="toggleSvc(this,'Office Cleaning')">🏢 Office Cleaning</div>
+        <div class="q-svc-opt" onclick="toggleSvc(this,'Carpet Cleaning')">🪞 Carpet Cleaning</div>
+        <div class="q-svc-opt" onclick="toggleSvc(this,'Sofa Cleaning')">🛋️ Sofa Cleaning</div>
+        <div class="q-svc-opt" onclick="toggleSvc(this,'BnB Cleaning')">🏨 BnB Cleaning</div>
+        <div class="q-svc-opt" onclick="toggleSvc(this,'Post-Construction')">🏗️ Post-Construction</div>
+        <div class="q-svc-opt" onclick="toggleSvc(this,'Short Stay Nannies')">👶 Short Stay Nannies</div>
+        <div class="q-svc-opt" onclick="toggleSvc(this,'Not Sure Yet')">🤔 Not Sure Yet</div>
+      </div>
+      <div class="form-section-label" style="margin-top:4px;">Your Details</div>
+      <div class="form-group">
+        <label>Your Name *</label>
+        <input type="text" id="qName" placeholder="e.g. Jane Wanjiku" required>
+      </div>
+      <div class="form-group">
+        <label>Phone Number *</label>
+        <input type="tel" id="qPhone" placeholder="e.g. 0712 345 678" required>
+      </div>
+      <div class="form-group">
+        <label>Location / Area *</label>
+        <input type="text" id="qLocation" placeholder="e.g. Ruiru, Kiambu" required>
+      </div>
+      <div class="form-group">
+        <label>Anything else we should know?</label>
+        <textarea id="qNotes" placeholder="Size of space, frequency, special requirements..."></textarea>
+      </div>
+      <button class="wa-send-btn" onclick="sendQuoteWhatsApp()">
+        <svg class="wa-icon" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Send Quote Request via WhatsApp
+      </button>
+    </div>
+  </div>
+</div>
+
 <!-- ── BOOKING FORM MODAL ── -->
 <div class="form-modal-overlay" id="bookingModal">
   <div class="form-box">
     <div class="form-header">
       <div class="form-header-icon">📋</div>
       <div class="form-header-text">
-        <h3>Book a Cleaning</h3>
+        <h3>Book a Service</h3>
         <p id="bookingServiceLabel">Fill in your details below</p>
       </div>
       <button class="form-close" onclick="closeBookingModal()">✕</button>
@@ -571,7 +728,7 @@
         <textarea id="bNotes" placeholder="Any special instructions, size of space, specific areas to focus on..."></textarea>
       </div>
       <button class="wa-send-btn" onclick="sendToWhatsApp()">
-        <svg class="wa-icon" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <svg class="wa-icon" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         Send Booking via WhatsApp
       </button>
     </div>
@@ -579,96 +736,20 @@
 </div>
 
 <script>
-  // ── Service Data ──
+  /* ── Service Data ── */
   const services = {
-    house: {
-      icon: '🏠',
-      title: 'House Cleaning',
-      tag: 'Residential · Regular & Deep Clean',
-      desc: 'A thorough top-to-bottom clean of your home, leaving every room fresh, sanitised, and sparkling. Whether you need a one-off deep clean or a regular schedule, we tailor each visit to your home\'s needs.',
-      features: [
-        'Kitchen deep clean including appliances, surfaces & sinks',
-        'Bathroom scrubbing, descaling & sanitising',
-        'Bedroom dusting, vacuuming & linen change',
-        'Living area cleaning & floor mopping',
-        'Windows, skirting boards & hard-to-reach spots',
-        'Flexible scheduling — weekly, fortnightly or monthly'
-      ]
-    },
-    office: {
-      icon: '🏢',
-      title: 'Office Cleaning',
-      tag: 'Commercial · Flexible Scheduling',
-      desc: 'A clean office is a productive office. We keep your workplace spotless, hygienic, and welcoming for your team and clients — on a schedule that works around your business hours.',
-      features: [
-        'Workstation and desk surface cleaning & sanitising',
-        'Kitchen/break room deep clean',
-        'Bathroom and washroom hygiene service',
-        'Vacuuming, mopping & floor care',
-        'Waste removal and bin lining',
-        'Early morning, evening or weekend slots available'
-      ]
-    },
-    carpet: {
-      icon: '🪞',
-      title: 'Carpet Cleaning',
-      tag: 'Deep Clean · Stain Removal',
-      desc: 'Restore your carpets to their original freshness with our professional shampooing and steam cleaning service. We tackle tough stains, embedded dirt, and lingering odours for a truly deep clean.',
-      features: [
-        'Hot water extraction / steam cleaning',
-        'Specialist stain and spot treatment',
-        'Odour neutralisation and deodorising',
-        'Safe for all carpet types including wool and synthetic',
-        'Fast drying — back in use within hours',
-        'Allergen and dust mite reduction'
-      ]
-    },
-    sofa: {
-      icon: '🛋️',
-      title: 'Sofa Cleaning',
-      tag: 'Upholstery · Fabric & Leather',
-      desc: 'Revive your sofa and upholstery with our specialist deep clean service. We remove dirt, stains, pet hair, and odours — leaving your furniture looking and smelling like new.',
-      features: [
-        'Deep extraction cleaning for fabric sofas',
-        'Leather conditioning and gentle wipe-down',
-        'Stain and spill treatment',
-        'Pet hair and allergen removal',
-        'Deodorising and fabric protection',
-        'Armchairs, chaises, and sectionals covered'
-      ]
-    },
-    bnb: {
-      icon: '🏨',
-      title: 'BnB / Airbnb Cleaning',
-      tag: 'Short-Let · Turnover Cleans',
-      desc: 'Keep your Airbnb or short-let property guest-ready after every checkout. We handle fast, reliable turnovers so you can focus on hosting — not cleaning.',
-      features: [
-        'Full property clean between every guest stay',
-        'Linen change and bed making',
-        'Bathroom deep sanitising',
-        'Kitchen reset — dishes, surfaces & appliances',
-        'Restocking of toiletries and consumables (if supplied)',
-        'Flexible same-day turnovers available'
-      ]
-    },
-    postconstruction: {
-      icon: '🏗️',
-      title: 'Post-Construction Cleaning',
-      tag: 'Construction · Renovation Clean-Up',
-      desc: 'After building or renovation work, your space needs a specialist clean before it\'s move-in ready. We remove construction dust, cement residue, paint splashes, and debris — leaving your property pristine.',
-      features: [
-        'Fine dust and construction debris removal',
-        'Cement, grout, and paint splash clean-up',
-        'Window and glass polishing inside and out',
-        'Floor scrubbing — tiles, wood, concrete, marble',
-        'Fixture and fitting clean-up (sinks, taps, cabinets)',
-        'Waste disposal and site clear-out'
-      ]
-    }
+    house: { icon:'🏠', title:'House Cleaning', tag:'Residential · Regular & Deep Clean', desc:'A thorough top-to-bottom clean of your home, leaving every room fresh, sanitised, and sparkling. Whether you need a one-off deep clean or a regular schedule, we tailor each visit to your home\'s needs.', features:['Kitchen deep clean including appliances, surfaces & sinks','Bathroom scrubbing, descaling & sanitising','Bedroom dusting, vacuuming & linen change','Living area cleaning & floor mopping','Windows, skirting boards & hard-to-reach spots','Flexible scheduling — weekly, fortnightly or monthly'] },
+    office: { icon:'🏢', title:'Office Cleaning', tag:'Commercial · Flexible Scheduling', desc:'A clean office is a productive office. We keep your workplace spotless, hygienic, and welcoming for your team and clients — on a schedule that works around your business hours.', features:['Workstation and desk surface cleaning & sanitising','Kitchen/break room deep clean','Bathroom and washroom hygiene service','Vacuuming, mopping & floor care','Waste removal and bin lining','Early morning, evening or weekend slots available'] },
+    carpet: { icon:'🪞', title:'Carpet Cleaning', tag:'Deep Clean · Stain Removal', desc:'Restore your carpets to their original freshness with our professional shampooing and steam cleaning service. We tackle tough stains, embedded dirt, and lingering odours for a truly deep clean.', features:['Hot water extraction / steam cleaning','Specialist stain and spot treatment','Odour neutralisation and deodorising','Safe for all carpet types including wool and synthetic','Fast drying — back in use within hours','Allergen and dust mite reduction'] },
+    sofa: { icon:'🛋️', title:'Sofa Cleaning', tag:'Upholstery · Fabric & Leather', desc:'Revive your sofa and upholstery with our specialist deep clean service. We remove dirt, stains, pet hair, and odours — leaving your furniture looking and smelling like new.', features:['Deep extraction cleaning for fabric sofas','Leather conditioning and gentle wipe-down','Stain and spill treatment','Pet hair and allergen removal','Deodorising and fabric protection','Armchairs, chaises, and sectionals covered'] },
+    bnb: { icon:'🏨', title:'BnB / Airbnb Cleaning', tag:'Short-Let · Turnover Cleans', desc:'Keep your Airbnb or short-let property guest-ready after every checkout. We handle fast, reliable turnovers so you can focus on hosting — not cleaning.', features:['Full property clean between every guest stay','Linen change and bed making','Bathroom deep sanitising','Kitchen reset — dishes, surfaces & appliances','Restocking of toiletries and consumables (if supplied)','Flexible same-day turnovers available'] },
+    postconstruction: { icon:'🏗️', title:'Post-Construction Cleaning', tag:'Construction · Renovation Clean-Up', desc:'After building or renovation work, your space needs a specialist clean before it\'s move-in ready. We remove construction dust, cement residue, paint splashes, and debris — leaving your property pristine.', features:['Fine dust and construction debris removal','Cement, grout, and paint splash clean-up','Window and glass polishing inside and out','Floor scrubbing — tiles, wood, concrete, marble','Fixture and fitting clean-up (sinks, taps, cabinets)','Waste disposal and site clear-out'] },
+    nannies: { icon:'👶', title:'Short Stay Nannies', tag:'Childcare · Flexible Hours', desc:'Need a trusted pair of hands to look after your little ones? Our vetted, caring nannies are available for short-term childcare — whether it\'s a few hours, a full day, or overnight cover.', features:['Vetted, background-checked nannies','Flexible bookings — hourly, half-day or full day','Newborn care and older child supervision','Meal preparation and light tidying included','Available for events, travel days and emergency cover','Experienced with children of all ages'] }
   };
 
   let currentService = '';
 
+  /* ── Service Detail Modal ── */
   function openServiceModal(key) {
     currentService = key;
     const s = services[key];
@@ -678,25 +759,27 @@
     document.getElementById('modalDesc').textContent = s.desc;
     const ul = document.getElementById('modalFeatures');
     ul.innerHTML = '';
-    s.features.forEach(f => {
-      const li = document.createElement('li');
-      li.textContent = f;
-      ul.appendChild(li);
-    });
+    s.features.forEach(f => { const li = document.createElement('li'); li.textContent = f; ul.appendChild(li); });
     document.getElementById('serviceModal').classList.add('open');
     document.body.style.overflow = 'hidden';
   }
+  function closeServiceModal() { document.getElementById('serviceModal').classList.remove('open'); document.body.style.overflow = ''; }
 
-  function closeServiceModal() {
-    document.getElementById('serviceModal').classList.remove('open');
-    document.body.style.overflow = '';
-  }
-
+  /* ── Booking form from service detail modal ── */
   function openBookingForm() {
     closeServiceModal();
-    const s = services[currentService];
+    _openBookingModal(currentService);
+  }
+
+  /* ── Booking form direct from service card ── */
+  function openBookingFormDirect(key) {
+    currentService = key;
+    _openBookingModal(key);
+  }
+
+  function _openBookingModal(key) {
+    const s = services[key];
     document.getElementById('bookingServiceLabel').textContent = s.icon + ' ' + s.title;
-    // Set min date to today
     const today = new Date().toISOString().split('T')[0];
     document.getElementById('bDate').min = today;
     document.getElementById('bDate').value = '';
@@ -709,10 +792,7 @@
     document.body.style.overflow = 'hidden';
   }
 
-  function closeBookingModal() {
-    document.getElementById('bookingModal').classList.remove('open');
-    document.body.style.overflow = '';
-  }
+  function closeBookingModal() { document.getElementById('bookingModal').classList.remove('open'); document.body.style.overflow = ''; }
 
   function sendToWhatsApp() {
     const name = document.getElementById('bName').value.trim();
@@ -721,77 +801,66 @@
     const date = document.getElementById('bDate').value;
     const time = document.getElementById('bTime').value;
     const notes = document.getElementById('bNotes').value.trim();
-
-    if (!name || !phone || !location || !date || !time) {
-      alert('Please fill in all required fields (Name, Phone, Location, Date and Time).');
-      return;
-    }
-
-    // Format date nicely
+    if (!name || !phone || !location || !date || !time) { alert('Please fill in all required fields (Name, Phone, Location, Date and Time).'); return; }
     const dateObj = new Date(date + 'T00:00:00');
-    const dateFormatted = dateObj.toLocaleDateString('en-KE', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-
-    // Format time nicely
+    const dateFormatted = dateObj.toLocaleDateString('en-KE', { weekday:'long', year:'numeric', month:'long', day:'numeric' });
     const [h, m] = time.split(':');
-    const hour = parseInt(h);
-    const ampm = hour >= 12 ? 'PM' : 'AM';
-    const hour12 = hour % 12 || 12;
+    const hour = parseInt(h); const ampm = hour >= 12 ? 'PM' : 'AM'; const hour12 = hour % 12 || 12;
     const timeFormatted = `${hour12}:${m} ${ampm}`;
-
     const svcName = services[currentService] ? services[currentService].title : 'Cleaning Service';
-
-    const message =
-      `*🧹 New Booking Request — Jazo Cleaners*\n\n` +
-      `*Service:* ${svcName}\n` +
-      `*Name:* ${name}\n` +
-      `*Phone:* ${phone}\n` +
-      `*Location:* ${location}\n` +
-      `*Date:* ${dateFormatted}\n` +
-      `*Time:* ${timeFormatted}\n` +
-      (notes ? `*Notes:* ${notes}\n` : '') +
-      `\n_Sent via Jazo Cleaners website_`;
-
-    const waNumber = '254720663044';
-    const waUrl = `https://wa.me/${waNumber}?text=${encodeURIComponent(message)}`;
-    window.open(waUrl, '_blank');
+    const message = `*🧹 New Booking Request — Jazo Cleaners*\n\n*Service:* ${svcName}\n*Name:* ${name}\n*Phone:* ${phone}\n*Location:* ${location}\n*Date:* ${dateFormatted}\n*Time:* ${timeFormatted}\n` + (notes ? `*Notes:* ${notes}\n` : '') + `\n_Sent via Jazo Cleaners website_`;
+    window.open(`https://wa.me/254720663044?text=${encodeURIComponent(message)}`, '_blank');
   }
 
-  // Close modals on overlay click
-  document.getElementById('serviceModal').addEventListener('click', function(e) {
-    if (e.target === this) closeServiceModal();
-  });
-  document.getElementById('bookingModal').addEventListener('click', function(e) {
-    if (e.target === this) closeBookingModal();
-  });
+  /* ── Quote Modal ── */
+  let selectedServices = [];
+  function openQuoteModal() {
+    selectedServices = [];
+    document.querySelectorAll('.q-svc-opt').forEach(el => el.classList.remove('selected'));
+    document.getElementById('qName').value = '';
+    document.getElementById('qPhone').value = '';
+    document.getElementById('qLocation').value = '';
+    document.getElementById('qNotes').value = '';
+    document.getElementById('quoteModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeQuoteModal() { document.getElementById('quoteModal').classList.remove('open'); document.body.style.overflow = ''; }
+  function toggleSvc(el, name) {
+    el.classList.toggle('selected');
+    if (el.classList.contains('selected')) { selectedServices.push(name); }
+    else { selectedServices = selectedServices.filter(s => s !== name); }
+  }
+  function sendQuoteWhatsApp() {
+    const name = document.getElementById('qName').value.trim();
+    const phone = document.getElementById('qPhone').value.trim();
+    const location = document.getElementById('qLocation').value.trim();
+    const notes = document.getElementById('qNotes').value.trim();
+    if (!name || !phone || !location) { alert('Please fill in your Name, Phone and Location.'); return; }
+    const svcList = selectedServices.length ? selectedServices.join(', ') : 'Not specified';
+    const message = `*💬 Quote Request — Jazo Cleaners*\n\n*Service(s):* ${svcList}\n*Name:* ${name}\n*Phone:* ${phone}\n*Location:* ${location}\n` + (notes ? `*Details:* ${notes}\n` : '') + `\n_Sent via Jazo Cleaners website_`;
+    window.open(`https://wa.me/254720663044?text=${encodeURIComponent(message)}`, '_blank');
+  }
 
-  // Nav scroll
+  /* ── Overlay click to close ── */
+  document.getElementById('serviceModal').addEventListener('click', function(e) { if (e.target === this) closeServiceModal(); });
+  document.getElementById('bookingModal').addEventListener('click', function(e) { if (e.target === this) closeBookingModal(); });
+  document.getElementById('quoteModal').addEventListener('click', function(e) { if (e.target === this) closeQuoteModal(); });
+
+  /* ── Nav scroll ── */
   const nav = document.getElementById('navbar');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 40);
-  });
+  window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); });
 
-  // Hamburger
+  /* ── Hamburger ── */
   const burger = document.getElementById('burger');
   const mobileMenu = document.getElementById('mobileMenu');
-  burger.addEventListener('click', () => {
-    burger.classList.toggle('open');
-    mobileMenu.classList.toggle('open');
-  });
-  function closeMobile() {
-    burger.classList.remove('open');
-    mobileMenu.classList.remove('open');
-  }
+  burger.addEventListener('click', () => { burger.classList.toggle('open'); mobileMenu.classList.toggle('open'); });
+  function closeMobile() { burger.classList.remove('open'); mobileMenu.classList.remove('open'); }
 
-  // Fade-in on scroll
+  /* ── Fade-in ── */
   const faders = document.querySelectorAll('.fade-in');
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach((e, i) => {
-      if (e.isIntersecting) {
-        setTimeout(() => e.target.classList.add('visible'), i * 80);
-        observer.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.12 });
+    entries.forEach((e, i) => { if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), i * 80); observer.unobserve(e.target); } });
+  }, { threshold: 0.1 });
   faders.forEach(f => observer.observe(f));
 </script>
 </body>
