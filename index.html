@@ -26,10 +26,11 @@
   /* ── NAV ── */
   nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 14px 6%; background: rgba(10,20,60,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(41,182,246,0.15); transition: padding .3s; }
   nav.scrolled { padding: 10px 6%; }
-  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-  .nav-logo-circle { width: 44px; height: 44px; border-radius: 50%; background: white; display: flex; align-items: center; justify-content: center; overflow: hidden; flex-shrink: 0; box-shadow: 0 0 0 2px var(--sky); }
-  .nav-brand { color: white; font-family: 'Playfair Display', serif; font-size: 1.2rem; line-height: 1.1; }
-  .nav-brand span { display: block; font-size: .65rem; font-family: 'DM Sans', sans-serif; font-weight: 400; color: var(--sky); letter-spacing: .15em; text-transform: uppercase; }
+  .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .nav-logo-circle { width: 52px; height: 52px; border-radius: 50%; background: white; display: flex; align-items: center; justify-content: center; overflow: hidden; flex-shrink: 0; box-shadow: 0 0 0 2px var(--sky), 0 0 0 4px rgba(41,182,246,.2); }
+  .nav-logo-circle img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+  .nav-brand { color: white; font-family: 'Playfair Display', serif; font-size: 1.6rem; line-height: 1.1; letter-spacing: -.01em; }
+  .nav-brand span { display: block; font-size: .65rem; font-family: 'DM Sans', sans-serif; font-weight: 600; color: var(--sky); letter-spacing: .2em; text-transform: uppercase; margin-top: 2px; }
   .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
   .nav-links a { color: rgba(255,255,255,.8); text-decoration: none; font-size: .88rem; font-weight: 500; transition: color .2s; position: relative; }
   .nav-links a::after { content: ''; position: absolute; bottom: -3px; left: 0; right: 100%; height: 2px; background: var(--sky); transition: right .3s; }
@@ -43,7 +44,7 @@
   .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
   .hamburger.open span:nth-child(2) { opacity: 0; }
   .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-  .mobile-menu { display: none; position: fixed; top: 72px; left: 0; right: 0; background: var(--dark); padding: 20px 6% 28px; flex-direction: column; gap: 18px; z-index: 99; border-bottom: 2px solid var(--sky); }
+  .mobile-menu { display: none; position: fixed; top: 76px; left: 0; right: 0; background: var(--dark); padding: 20px 6% 28px; flex-direction: column; gap: 18px; z-index: 99; border-bottom: 2px solid var(--sky); }
   .mobile-menu.open { display: flex; }
   .mobile-menu a { color: rgba(255,255,255,.85); text-decoration: none; font-size: 1rem; font-weight: 500; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,.07); transition: color .2s; }
   .mobile-menu a:hover { color: var(--sky); }
@@ -74,52 +75,14 @@
   .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 35px rgba(41,182,246,.55); }
   .btn-outline { border: 2px solid rgba(255,255,255,.3); color: white; padding: 13px 28px; border-radius: 50px; text-decoration: none; font-weight: 500; font-size: .95rem; transition: border-color .25s, background .25s; display: inline-flex; align-items: center; gap: 8px; }
   .btn-outline:hover { border-color: var(--sky); background: rgba(41,182,246,.08); }
-
-  /* ── HERO QUOTE BUTTON ── */
-  .btn-quote {
-    background: white;
-    color: var(--navy);
-    padding: 14px 30px;
-    border-radius: 50px;
-    font-weight: 700;
-    font-size: .95rem;
-    border: none;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    gap: 9px;
-    font-family: 'DM Sans', sans-serif;
-    box-shadow: 0 6px 25px rgba(0,0,0,.2);
-    transition: transform .25s, box-shadow .25s;
-    position: relative;
-    overflow: hidden;
-  }
-  .btn-quote::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, var(--sky), var(--lime));
-    opacity: 0;
-    transition: opacity .3s;
-  }
+  .btn-quote { background: white; color: var(--navy); padding: 14px 30px; border-radius: 50px; font-weight: 700; font-size: .95rem; border: none; cursor: pointer; display: inline-flex; align-items: center; gap: 9px; font-family: 'DM Sans', sans-serif; box-shadow: 0 6px 25px rgba(0,0,0,.2); transition: transform .25s, box-shadow .25s; position: relative; overflow: hidden; }
+  .btn-quote::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, var(--sky), var(--lime)); opacity: 0; transition: opacity .3s; }
   .btn-quote:hover::before { opacity: .12; }
   .btn-quote:hover { transform: translateY(-3px); box-shadow: 0 10px 35px rgba(0,0,0,.3); }
-  .btn-quote .q-pulse {
-    width: 10px; height: 10px; border-radius: 50%;
-    background: var(--green);
-    position: relative;
-    flex-shrink: 0;
-  }
-  .btn-quote .q-pulse::after {
-    content: '';
-    position: absolute;
-    inset: -4px;
-    border-radius: 50%;
-    border: 2px solid var(--green);
-    animation: pulse 1.6s ease-out infinite;
-  }
+  .btn-quote .q-pulse { width: 10px; height: 10px; border-radius: 50%; background: var(--green); position: relative; flex-shrink: 0; z-index: 1; }
+  .btn-quote .q-pulse::after { content: ''; position: absolute; inset: -4px; border-radius: 50%; border: 2px solid var(--green); animation: pulse 1.6s ease-out infinite; }
+  .btn-quote span:last-child { position: relative; z-index: 1; }
   @keyframes pulse { 0% { opacity: 1; transform: scale(1); } 100% { opacity: 0; transform: scale(2.2); } }
-
   .hero-stats { display: flex; gap: 28px; }
   .stat { text-align: left; }
   .stat-num { font-family: 'Playfair Display', serif; font-size: 1.9rem; color: white; line-height: 1; }
@@ -134,28 +97,10 @@
 
   /* ── STATS STRIP ── */
   #stats { background: white; padding: 0; border-bottom: 1px solid rgba(26,42,108,.06); }
-  .stats-strip {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    padding: 0 6%;
-  }
-  .stats-item {
-    padding: 36px 20px;
-    text-align: center;
-    border-right: 1px solid rgba(26,42,108,.07);
-    position: relative;
-  }
+  .stats-strip { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); padding: 0 6%; }
+  .stats-item { padding: 36px 20px; text-align: center; border-right: 1px solid rgba(26,42,108,.07); }
   .stats-item:last-child { border-right: none; }
-  .stats-item-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.6rem;
-    font-weight: 900;
-    color: var(--navy);
-    line-height: 1;
-    margin-bottom: 6px;
-  }
+  .stats-item-num { font-family: 'Playfair Display', serif; font-size: 2.6rem; font-weight: 900; color: var(--navy); line-height: 1; margin-bottom: 6px; }
   .stats-item-num span { color: var(--sky); }
   .stats-item-label { font-size: .82rem; color: var(--gray); font-weight: 500; }
   .stats-item-icon { font-size: 1.4rem; margin-bottom: 8px; display: block; }
@@ -189,39 +134,10 @@
   .svc-name { font-family: 'Playfair Display', serif; font-size: 1.25rem; color: var(--dark); font-weight: 700; margin-bottom: 8px; }
   .svc-desc { font-size: .88rem; color: var(--gray); line-height: 1.65; margin-bottom: 18px; }
   .svc-cta-row { display: flex; gap: 10px; margin-top: auto; }
-  .svc-btn-details {
-    flex: 1;
-    padding: 10px 0;
-    border: 1.5px solid rgba(26,42,108,.2);
-    background: white;
-    border-radius: 50px;
-    font-size: .82rem;
-    font-weight: 600;
-    color: var(--navy);
-    cursor: pointer;
-    font-family: 'DM Sans', sans-serif;
-    transition: border-color .2s, background .2s;
-  }
+  .svc-btn-details { flex: 1; padding: 10px 0; border: 1.5px solid rgba(26,42,108,.2); background: white; border-radius: 50px; font-size: .82rem; font-weight: 600; color: var(--navy); cursor: pointer; font-family: 'DM Sans', sans-serif; transition: border-color .2s, background .2s; }
   .svc-btn-details:hover { border-color: var(--sky); background: rgba(41,182,246,.04); color: var(--blue); }
-  .svc-btn-book {
-    flex: 1;
-    padding: 10px 0;
-    border: none;
-    background: linear-gradient(135deg, var(--sky), var(--blue));
-    border-radius: 50px;
-    font-size: .82rem;
-    font-weight: 700;
-    color: white;
-    cursor: pointer;
-    font-family: 'DM Sans', sans-serif;
-    transition: transform .2s, box-shadow .2s;
-    box-shadow: 0 4px 12px rgba(41,182,246,.3);
-  }
+  .svc-btn-book { flex: 1; padding: 10px 0; border: none; background: linear-gradient(135deg, var(--sky), var(--blue)); border-radius: 50px; font-size: .82rem; font-weight: 700; color: white; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: transform .2s, box-shadow .2s; box-shadow: 0 4px 12px rgba(41,182,246,.3); }
   .svc-btn-book:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(41,182,246,.45); }
-  .svc-footer { background: linear-gradient(135deg, var(--navy), var(--blue)); padding: 12px 28px; display: flex; align-items: center; justify-content: space-between; }
-  .svc-footer span { color: rgba(255,255,255,.8); font-size: .78rem; }
-  .svc-arrow { width: 28px; height: 28px; border-radius: 50%; background: rgba(255,255,255,.15); display: flex; align-items: center; justify-content: center; color: white; font-size: .8rem; transition: background .2s, transform .2s; }
-  .svc-card:hover .svc-arrow { background: var(--sky); transform: translateX(3px); }
 
   /* ── AREAS ── */
   #areas { background: var(--dark); }
@@ -232,6 +148,21 @@
   .area-pill { background: rgba(255,255,255,.06); border: 1px solid rgba(41,182,246,.2); color: rgba(255,255,255,.85); padding: 11px 22px; border-radius: 50px; font-size: .9rem; font-weight: 500; display: flex; align-items: center; gap: 8px; transition: background .25s, border-color .25s, transform .25s; cursor: default; }
   .area-pill:hover { background: rgba(41,182,246,.12); border-color: var(--sky); transform: scale(1.04); }
   .area-pill::before { content: '📍'; font-size: .8rem; }
+
+  /* ── REVIEWS ── */
+  #reviews { background: var(--light); }
+  .reviews-wrap { max-width: 1200px; margin: 0 auto; }
+  .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; margin-top: 50px; }
+  .review-card { background: white; border-radius: 20px; padding: 28px 24px; box-shadow: 0 2px 20px rgba(26,42,108,.06); position: relative; transition: transform .3s, box-shadow .3s; }
+  .review-card:hover { transform: translateY(-5px); box-shadow: 0 12px 40px rgba(26,42,108,.11); }
+  .review-quote { font-size: 3rem; line-height: 1; color: var(--sky); font-family: Georgia, serif; margin-bottom: 6px; opacity: .4; }
+  .review-text { font-size: .93rem; color: var(--gray); line-height: 1.7; margin-bottom: 20px; font-style: italic; }
+  .review-stars { color: #f4b400; font-size: 1rem; letter-spacing: 2px; margin-bottom: 14px; }
+  .review-author { display: flex; align-items: center; gap: 12px; }
+  .review-avatar { width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; font-weight: 700; color: white; flex-shrink: 0; }
+  .review-name { font-weight: 700; font-size: .92rem; color: var(--dark); }
+  .review-location { font-size: .78rem; color: var(--gray); margin-top: 2px; }
+  .review-badge { position: absolute; top: 20px; right: 20px; background: rgba(41,182,246,.1); color: var(--blue); font-size: .7rem; font-weight: 700; padding: 3px 10px; border-radius: 50px; letter-spacing: .05em; }
 
   /* ── CTA BANNER ── */
   #contact { background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 60%, #0288d1 100%); position: relative; overflow: hidden; }
@@ -247,17 +178,54 @@
   .btn-white:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(0,0,0,.2); }
 
   /* ── FOOTER ── */
-  footer { background: #07102a; color: rgba(255,255,255,.5); text-align: center; padding: 28px 6%; font-size: .85rem; }
+  footer { background: #07102a; color: rgba(255,255,255,.5); text-align: center; padding: 36px 6%; font-size: .85rem; }
   footer strong { color: var(--sky); }
-  .footer-social { display: flex; justify-content: center; gap: 14px; margin-top: 14px; }
-  .footer-social a { width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,.07); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,.6); font-size: .75rem; text-decoration: none; transition: background .2s, color .2s; }
-  .footer-social a:hover { background: var(--sky); color: white; }
+  .footer-brand { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: white; margin-bottom: 6px; }
+  .footer-tagline { font-size: .82rem; color: rgba(255,255,255,.4); margin-bottom: 20px; }
+  .footer-social { display: flex; justify-content: center; gap: 12px; margin-top: 20px; }
+  .footer-social a { display: flex; align-items: center; gap: 8px; padding: 9px 18px; border-radius: 50px; background: rgba(255,255,255,.07); color: rgba(255,255,255,.75); font-size: .8rem; font-weight: 600; text-decoration: none; transition: background .2s, color .2s, transform .2s; border: 1px solid rgba(255,255,255,.08); }
+  .footer-social a:hover { color: white; transform: translateY(-2px); }
+  .footer-social a.tiktok:hover { background: #010101; border-color: #010101; }
+  .footer-social a.instagram:hover { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); border-color: transparent; }
+  .footer-social a.facebook:hover { background: #1877f2; border-color: #1877f2; }
+  .footer-social-icon { width: 18px; height: 18px; flex-shrink: 0; }
+  .footer-copy { margin-top: 24px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.06); font-size: .8rem; }
+
+  /* ── WHATSAPP FLOAT ── */
+  .wa-float {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    z-index: 500;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: #25D366;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 28px rgba(37,211,102,.5);
+    text-decoration: none;
+    transition: transform .25s, box-shadow .25s;
+  }
+  .wa-float:hover { transform: scale(1.1) translateY(-3px); box-shadow: 0 10px 35px rgba(37,211,102,.65); }
+  .wa-float svg { width: 30px; height: 30px; }
+  .wa-float-ping {
+    position: absolute;
+    top: 0; right: 0;
+    width: 16px; height: 16px;
+    border-radius: 50%;
+    background: #ff4444;
+    border: 2px solid #07102a;
+    animation: floatPing 2s ease-in-out infinite;
+  }
+  @keyframes floatPing { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.3); } }
 
   /* ── FADE-IN ── */
   .fade-in { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
   .fade-in.visible { opacity: 1; transform: none; }
 
-  /* ── SERVICE DETAIL MODAL ── */
+  /* ── MODALS SHARED ── */
   .modal-overlay { display: none; position: fixed; inset: 0; z-index: 200; background: rgba(7,16,42,0.75); backdrop-filter: blur(6px); align-items: center; justify-content: center; padding: 20px; }
   .modal-overlay.open { display: flex; }
   .modal-box { background: white; border-radius: 24px; width: 100%; max-width: 520px; max-height: 90vh; overflow-y: auto; box-shadow: 0 30px 80px rgba(0,0,0,.35); animation: modalIn .3s cubic-bezier(.34,1.56,.64,1); }
@@ -328,6 +296,9 @@
     .stats-item:nth-child(3) { border-right: 1px solid rgba(26,42,108,.07); border-top: 1px solid rgba(26,42,108,.07); }
     .stats-item:nth-child(4) { border-right: none; border-top: 1px solid rgba(26,42,108,.07); }
   }
+  @media (max-width: 600px) {
+    .footer-social { flex-direction: column; align-items: center; }
+  }
   @media (max-width: 540px) {
     .hero-cards { grid-template-columns: 1fr 1fr; gap: 10px; }
     .hcard { padding: 16px 14px; }
@@ -342,6 +313,8 @@
     .stats-strip { grid-template-columns: repeat(2, 1fr); }
     .hero-btns { flex-direction: column; }
     .btn-primary, .btn-outline, .btn-quote { width: 100%; justify-content: center; }
+    .wa-float { width: 50px; height: 50px; bottom: 20px; right: 20px; }
+    .nav-brand { font-size: 1.3rem; }
   }
 </style>
 </head>
@@ -351,14 +324,15 @@
 <nav id="navbar">
   <a class="nav-logo" href="#home">
     <div class="nav-logo-circle">
-      <img src="jazo logo.jpeg" alt="Jazo Cleaners Logo" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">
+      <img src="jazo logo.jpeg" alt="Jazo Cleaners Logo">
     </div>
-    <div class="nav-brand">Jazo <span>Cleaners</span></div>
+    <div class="nav-brand">Jazo Cleaners<span>Professional Cleaning</span></div>
   </a>
   <ul class="nav-links">
     <li><a href="#why">Why Us</a></li>
     <li><a href="#services">Services</a></li>
     <li><a href="#areas">Areas</a></li>
+    <li><a href="#reviews">Reviews</a></li>
     <li><a href="#contact" class="nav-cta">Book Now</a></li>
   </ul>
   <button class="hamburger" id="burger" aria-label="Menu">
@@ -371,6 +345,7 @@
   <a href="#why"      onclick="closeMobile()">Why Us</a>
   <a href="#services" onclick="closeMobile()">Services</a>
   <a href="#areas"    onclick="closeMobile()">Areas</a>
+  <a href="#reviews"  onclick="closeMobile()">Reviews</a>
   <a href="#contact"  onclick="closeMobile()" class="m-cta">Book Now</a>
 </div>
 
@@ -392,10 +367,10 @@
         Professional cleaning services for homes, offices, carpets, sofas, post-construction sites, and Airbnb properties. Serving Nairobi, Kiambu, Kajiado &amp; Machakos.
       </p>
       <div class="hero-btns">
-        <a href="tel:0742386820" class="btn-primary">📞 Call Us Now</a>
+        <a href="tel:0720663044" class="btn-primary">📞 Call Us Now</a>
         <button class="btn-quote" onclick="openQuoteModal()">
           <span class="q-pulse"></span>
-          Get a Quote
+          <span>Get a Free Quote</span>
         </button>
         <a href="#services" class="btn-outline">Our Services ↓</a>
       </div>
@@ -586,10 +561,80 @@
       <p class="section-sub">We cover the following counties in Kenya. Don't see your exact location? Give us a call — we'll do our best to reach you!</p>
     </div>
     <div class="areas-grid fade-in">
-      <div class="area-pill">Kiambu</div>
       <div class="area-pill">Nairobi</div>
+      <div class="area-pill">Kiambu</div>
       <div class="area-pill">Kajiado</div>
       <div class="area-pill">Machakos</div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews">
+  <div class="reviews-wrap">
+    <div class="centered fade-in">
+      <div class="section-label">Client Reviews</div>
+      <h2 class="section-title">What Our Clients Say</h2>
+      <p class="section-sub">Don't just take our word for it — here's what our happy clients have to say about Jazo Cleaners.</p>
+    </div>
+    <div class="reviews-grid">
+
+      <div class="review-card fade-in">
+        <div class="review-badge">House Cleaning</div>
+        <div class="review-quote">"</div>
+        <p class="review-text">Jazo Cleaners did an amazing job with my house in Ruiru. Every room was spotless and they were so thorough — even cleaned areas I didn't expect. I will definitely be booking them again every month.</p>
+        <div class="review-stars">★★★★★</div>
+        <div class="review-author">
+          <div class="review-avatar" style="background: linear-gradient(135deg, #1565c0, #29b6f6);">WN</div>
+          <div>
+            <div class="review-name">Wanjiru Njoroge</div>
+            <div class="review-location">Ruiru, Kiambu</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card fade-in">
+        <div class="review-badge">Sofa & Carpet</div>
+        <div class="review-quote">"</div>
+        <p class="review-text">My sofas were looking really old and stained. After Jazo Cleaners came, they looked almost brand new! The team was professional, on time, and very respectful. Highly recommended.</p>
+        <div class="review-stars">★★★★★</div>
+        <div class="review-author">
+          <div class="review-avatar" style="background: linear-gradient(135deg, #43a047, #7cb342);">KM</div>
+          <div>
+            <div class="review-name">Kevin Mwangi</div>
+            <div class="review-location">Kahawa Wendani, Nairobi</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card fade-in">
+        <div class="review-badge">BnB Cleaning</div>
+        <div class="review-quote">"</div>
+        <p class="review-text">I manage three Airbnb units in Roysambu and Jazo handles all my turnovers. They are fast, reliable, and my guests always comment on how clean the apartments are. I can't run my BnB without them!</p>
+        <div class="review-stars">★★★★★</div>
+        <div class="review-author">
+          <div class="review-avatar" style="background: linear-gradient(135deg, #7b1fa2, #ce93d8);">AO</div>
+          <div>
+            <div class="review-name">Akinyi Odhiambo</div>
+            <div class="review-location">Roysambu, Nairobi</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card fade-in">
+        <div class="review-badge">Post-Construction</div>
+        <div class="review-quote">"</div>
+        <p class="review-text">We just finished building our new home in Athi River and the construction dust was everywhere. Jazo Cleaners came in and cleared everything in one day. The house was move-in ready by evening. Very impressed!</p>
+        <div class="review-stars">★★★★★</div>
+        <div class="review-author">
+          <div class="review-avatar" style="background: linear-gradient(135deg, #e65100, #ffb74d);">BK</div>
+          <div>
+            <div class="review-name">Brian Kamau</div>
+            <div class="review-location">Athi River, Machakos</div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -603,9 +648,8 @@
       <p class="section-sub" style="color:rgba(255,255,255,.65);">Call or WhatsApp us today and get a free quote. We'll handle the mess so you can enjoy a clean, stress-free environment.</p>
     </div>
     <div class="contact-right fade-in">
-      <a href="tel:0742386820" class="contact-num"><div class="icon">📞</div>0742 386 820</a>
       <a href="tel:0720663044" class="contact-num"><div class="icon">📞</div>0720 663 044</a>
-      <a href="tel:0741139330" class="contact-num"><div class="icon">📞</div>0741 139 330</a>
+      <a href="tel:0742386820" class="contact-num"><div class="icon">📞</div>0742 386 820</a>
       <a href="https://wa.me/254720663044" class="btn-white" target="_blank">💬 WhatsApp Us</a>
     </div>
   </div>
@@ -613,16 +657,36 @@
 
 <!-- FOOTER -->
 <footer>
-  <p>© 2026 <strong>Jazo Cleaners</strong>. Professional Cleaning Services in Nairobi &amp; Surroundings.</p>
-  <p style="margin-top:6px;">Follow us on TikTok: <strong>@jazocleaners</strong></p>
+  <div class="footer-brand">Jazo Cleaners</div>
+  <div class="footer-tagline">Professional Cleaning Services — Nairobi, Kiambu, Kajiado &amp; Machakos</div>
   <div class="footer-social">
-    <a href="#" title="TikTok">TT</a>
-    <a href="#" title="WhatsApp">WA</a>
-    <a href="#" title="Facebook">FB</a>
+    <a href="https://www.tiktok.com/@jazocleaners?_r=1&_t=ZS-97touqMgYWu" target="_blank" rel="noopener" class="tiktok">
+      <svg class="footer-social-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.75a4.85 4.85 0 01-1.01-.06z"/></svg>
+      Jazo Cleaners
+    </a>
+    <a href="https://www.instagram.com/jazocleanersandmovers?igsh=MWNoenMwOGh4cjMwbA==" target="_blank" rel="noopener" class="instagram">
+      <svg class="footer-social-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      Jazo Cleaners
+    </a>
+    <a href="https://www.facebook.com/Jazocleanersandmovers" target="_blank" rel="noopener" class="facebook">
+      <svg class="footer-social-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+      Jazo Cleaners
+    </a>
+  </div>
+  <div class="footer-copy">
+    <p>© 2026 <strong>Jazo Cleaners</strong>. Professional Cleaning Services in Nairobi &amp; Surroundings.</p>
   </div>
 </footer>
 
-<!-- ── SERVICE DETAIL MODAL ── -->
+<!-- WHATSAPP FLOAT BUTTON -->
+<a href="https://wa.me/254720663044" class="wa-float" target="_blank" rel="noopener" title="Chat with us on WhatsApp">
+  <div class="wa-float-ping"></div>
+  <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<!-- SERVICE DETAIL MODAL -->
 <div class="modal-overlay" id="serviceModal">
   <div class="modal-box">
     <div class="modal-header">
@@ -639,7 +703,7 @@
   </div>
 </div>
 
-<!-- ── QUOTE MODAL ── -->
+<!-- QUOTE MODAL -->
 <div class="quote-modal-overlay" id="quoteModal">
   <div class="quote-box">
     <div class="quote-header">
@@ -689,7 +753,7 @@
   </div>
 </div>
 
-<!-- ── BOOKING FORM MODAL ── -->
+<!-- BOOKING FORM MODAL -->
 <div class="form-modal-overlay" id="bookingModal">
   <div class="form-box">
     <div class="form-header">
@@ -736,7 +800,6 @@
 </div>
 
 <script>
-  /* ── Service Data ── */
   const services = {
     house: { icon:'🏠', title:'House Cleaning', tag:'Residential · Regular & Deep Clean', desc:'A thorough top-to-bottom clean of your home, leaving every room fresh, sanitised, and sparkling. Whether you need a one-off deep clean or a regular schedule, we tailor each visit to your home\'s needs.', features:['Kitchen deep clean including appliances, surfaces & sinks','Bathroom scrubbing, descaling & sanitising','Bedroom dusting, vacuuming & linen change','Living area cleaning & floor mopping','Windows, skirting boards & hard-to-reach spots','Flexible scheduling — weekly, fortnightly or monthly'] },
     office: { icon:'🏢', title:'Office Cleaning', tag:'Commercial · Flexible Scheduling', desc:'A clean office is a productive office. We keep your workplace spotless, hygienic, and welcoming for your team and clients — on a schedule that works around your business hours.', features:['Workstation and desk surface cleaning & sanitising','Kitchen/break room deep clean','Bathroom and washroom hygiene service','Vacuuming, mopping & floor care','Waste removal and bin lining','Early morning, evening or weekend slots available'] },
@@ -749,7 +812,6 @@
 
   let currentService = '';
 
-  /* ── Service Detail Modal ── */
   function openServiceModal(key) {
     currentService = key;
     const s = services[key];
@@ -765,33 +827,18 @@
   }
   function closeServiceModal() { document.getElementById('serviceModal').classList.remove('open'); document.body.style.overflow = ''; }
 
-  /* ── Booking form from service detail modal ── */
-  function openBookingForm() {
-    closeServiceModal();
-    _openBookingModal(currentService);
-  }
-
-  /* ── Booking form direct from service card ── */
-  function openBookingFormDirect(key) {
-    currentService = key;
-    _openBookingModal(key);
-  }
+  function openBookingForm() { closeServiceModal(); _openBookingModal(currentService); }
+  function openBookingFormDirect(key) { currentService = key; _openBookingModal(key); }
 
   function _openBookingModal(key) {
     const s = services[key];
     document.getElementById('bookingServiceLabel').textContent = s.icon + ' ' + s.title;
     const today = new Date().toISOString().split('T')[0];
     document.getElementById('bDate').min = today;
-    document.getElementById('bDate').value = '';
-    document.getElementById('bTime').value = '';
-    document.getElementById('bName').value = '';
-    document.getElementById('bPhone').value = '';
-    document.getElementById('bLocation').value = '';
-    document.getElementById('bNotes').value = '';
+    ['bDate','bTime','bName','bPhone','bLocation','bNotes'].forEach(id => document.getElementById(id).value = '');
     document.getElementById('bookingModal').classList.add('open');
     document.body.style.overflow = 'hidden';
   }
-
   function closeBookingModal() { document.getElementById('bookingModal').classList.remove('open'); document.body.style.overflow = ''; }
 
   function sendToWhatsApp() {
@@ -802,33 +849,27 @@
     const time = document.getElementById('bTime').value;
     const notes = document.getElementById('bNotes').value.trim();
     if (!name || !phone || !location || !date || !time) { alert('Please fill in all required fields (Name, Phone, Location, Date and Time).'); return; }
-    const dateObj = new Date(date + 'T00:00:00');
-    const dateFormatted = dateObj.toLocaleDateString('en-KE', { weekday:'long', year:'numeric', month:'long', day:'numeric' });
+    const dateFormatted = new Date(date + 'T00:00:00').toLocaleDateString('en-KE', { weekday:'long', year:'numeric', month:'long', day:'numeric' });
     const [h, m] = time.split(':');
-    const hour = parseInt(h); const ampm = hour >= 12 ? 'PM' : 'AM'; const hour12 = hour % 12 || 12;
-    const timeFormatted = `${hour12}:${m} ${ampm}`;
+    const hour = parseInt(h);
+    const timeFormatted = `${hour % 12 || 12}:${m} ${hour >= 12 ? 'PM' : 'AM'}`;
     const svcName = services[currentService] ? services[currentService].title : 'Cleaning Service';
     const message = `*🧹 New Booking Request — Jazo Cleaners*\n\n*Service:* ${svcName}\n*Name:* ${name}\n*Phone:* ${phone}\n*Location:* ${location}\n*Date:* ${dateFormatted}\n*Time:* ${timeFormatted}\n` + (notes ? `*Notes:* ${notes}\n` : '') + `\n_Sent via Jazo Cleaners website_`;
     window.open(`https://wa.me/254720663044?text=${encodeURIComponent(message)}`, '_blank');
   }
 
-  /* ── Quote Modal ── */
   let selectedServices = [];
   function openQuoteModal() {
     selectedServices = [];
     document.querySelectorAll('.q-svc-opt').forEach(el => el.classList.remove('selected'));
-    document.getElementById('qName').value = '';
-    document.getElementById('qPhone').value = '';
-    document.getElementById('qLocation').value = '';
-    document.getElementById('qNotes').value = '';
+    ['qName','qPhone','qLocation','qNotes'].forEach(id => document.getElementById(id).value = '');
     document.getElementById('quoteModal').classList.add('open');
     document.body.style.overflow = 'hidden';
   }
   function closeQuoteModal() { document.getElementById('quoteModal').classList.remove('open'); document.body.style.overflow = ''; }
   function toggleSvc(el, name) {
     el.classList.toggle('selected');
-    if (el.classList.contains('selected')) { selectedServices.push(name); }
-    else { selectedServices = selectedServices.filter(s => s !== name); }
+    selectedServices = el.classList.contains('selected') ? [...selectedServices, name] : selectedServices.filter(s => s !== name);
   }
   function sendQuoteWhatsApp() {
     const name = document.getElementById('qName').value.trim();
@@ -836,27 +877,22 @@
     const location = document.getElementById('qLocation').value.trim();
     const notes = document.getElementById('qNotes').value.trim();
     if (!name || !phone || !location) { alert('Please fill in your Name, Phone and Location.'); return; }
-    const svcList = selectedServices.length ? selectedServices.join(', ') : 'Not specified';
-    const message = `*💬 Quote Request — Jazo Cleaners*\n\n*Service(s):* ${svcList}\n*Name:* ${name}\n*Phone:* ${phone}\n*Location:* ${location}\n` + (notes ? `*Details:* ${notes}\n` : '') + `\n_Sent via Jazo Cleaners website_`;
+    const message = `*💬 Quote Request — Jazo Cleaners*\n\n*Service(s):* ${selectedServices.length ? selectedServices.join(', ') : 'Not specified'}\n*Name:* ${name}\n*Phone:* ${phone}\n*Location:* ${location}\n` + (notes ? `*Details:* ${notes}\n` : '') + `\n_Sent via Jazo Cleaners website_`;
     window.open(`https://wa.me/254720663044?text=${encodeURIComponent(message)}`, '_blank');
   }
 
-  /* ── Overlay click to close ── */
   document.getElementById('serviceModal').addEventListener('click', function(e) { if (e.target === this) closeServiceModal(); });
   document.getElementById('bookingModal').addEventListener('click', function(e) { if (e.target === this) closeBookingModal(); });
   document.getElementById('quoteModal').addEventListener('click', function(e) { if (e.target === this) closeQuoteModal(); });
 
-  /* ── Nav scroll ── */
   const nav = document.getElementById('navbar');
   window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); });
 
-  /* ── Hamburger ── */
   const burger = document.getElementById('burger');
   const mobileMenu = document.getElementById('mobileMenu');
   burger.addEventListener('click', () => { burger.classList.toggle('open'); mobileMenu.classList.toggle('open'); });
   function closeMobile() { burger.classList.remove('open'); mobileMenu.classList.remove('open'); }
 
-  /* ── Fade-in ── */
   const faders = document.querySelectorAll('.fade-in');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((e, i) => { if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), i * 80); observer.unobserve(e.target); } });
